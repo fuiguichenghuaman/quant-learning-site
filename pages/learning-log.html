@@ -2,132 +2,23 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0; url=./notes.html#notes-log">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="按时间线记录我从零开始学习量化交易的真实过程，包括学到什么、遇到什么问题，以及下一步计划。">
-  <title>学习日志 | 从零开始学量化交易</title>
+  <meta name="description" content="旧版学习日志页面已迁移到新的学习笔记页面。">
+  <title>学习日志已迁移 | 从零开始学量化交易</title>
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
-<body data-page="learning-log" data-content-root="../content">
-  <header class="site-topbar">
-    <div class="site-shell bar">
-      <div class="brand">
-        <div class="brand-mark">Q</div>
-        <div class="brand-copy">
-          <p class="brand-title">从零开始学量化交易</p>
-          <p class="brand-subtitle">学习日志</p>
-        </div>
+<body>
+  <main class="compat-page">
+    <section class="compat-panel">
+      <p class="eyebrow">Compatibility Page</p>
+      <h1>学习日志已迁移到“学习笔记”页</h1>
+      <p>原来的学习日志内容已经并入新的公开学习实验室结构中。现在建议从“学习笔记”页进入，并在页面下方查看最近学习时间线。</p>
+      <div class="compat-links">
+        <a href="./notes.html#notes-log">前往学习笔记中的时间线</a>
+        <a href="./roadmap.html">查看学习路线</a>
       </div>
-      <nav class="site-nav">
-        <a href="../index.html" data-nav="home">首页</a>
-        <a href="./learning-log.html" data-nav="learning-log">学习日志</a>
-        <a href="./code-experiments.html" data-nav="code-experiments">代码实验</a>
-        <a href="./strategy-lab.html" data-nav="strategy-lab">策略学习笔记</a>
-        <a href="./market-basics.html" data-nav="market-basics">中国股市基础</a>
-        <a href="./weekly-review.html" data-nav="weekly-review">每周复盘</a>
-        <a href="./about.html" data-nav="about">关于我</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="page-main">
-    <section class="hero">
-      <div class="hero-copy">
-        <div class="eyebrow">学习日志 · 时间线记录</div>
-        <h1 class="hero-title">把每个阶段的理解、问题和进展<br>完整留下来</h1>
-        <p class="hero-subtitle">
-          这一页按时间线记录学习过程。重点不是展示结果有多漂亮，而是保留每一次环境配置、代码运行、路径报错、网站整理和内容更新的真实过程。
-        </p>
-      </div>
-      <aside class="hero-side">
-        <div class="side-card">
-          <h3 id="stage-title">公开学习网站上线与数据处理入门</h3>
-          <p id="stage-summary">当前已经跑通 Python / numpy 基础数据读取，并完成个人量化学习网站的第一版公开发布。下一步会进入 pandas、收益率和均线等基础分析内容。</p>
-          <div class="progress-shell">
-            <div class="progress-bar"><span id="stage-progress" style="width: 30%;"></span></div>
-            <div class="progress-copy">
-              <span>这个进度代表学习积累，不代表交易水平</span>
-              <strong id="stage-percent">30%</strong>
-            </div>
-          </div>
-        </div>
-        <div class="metric-grid">
-          <article class="metric-card">
-            <p class="metric-label">记录方式</p>
-            <p class="metric-value">时间线</p>
-          </article>
-          <article class="metric-card">
-            <p class="metric-label">最新阶段</p>
-            <p class="metric-value">公开上线</p>
-          </article>
-        </div>
-      </aside>
-    </section>
-
-    <section class="section-grid">
-      <article class="section-card">
-        <div class="section-head">
-          <div>
-            <h2 class="section-title">当前学习重点</h2>
-            <p class="section-subtitle">如果内容文件读取失败，下面这组默认标签也能先把当前阶段说明白。</p>
-          </div>
-          <span class="tag">阶段聚焦</span>
-        </div>
-        <div class="pill-list" id="stage-focus">
-          <div class="pill">Python / numpy 读取 CSV 数据</div>
-          <div class="pill">GitHub + Vercel 公开网站维护</div>
-          <div class="pill">中国股市基础概念整理</div>
-          <div class="pill">pandas、收益率与均线入门准备</div>
-        </div>
-      </article>
-
-      <article class="section-card">
-        <div class="section-head">
-          <div>
-            <h2 class="section-title">学习时间线</h2>
-            <p class="section-subtitle">初始版本来自当前项目真实文件，后续会继续按时间补充。</p>
-          </div>
-          <span class="tag">真实更新记录</span>
-        </div>
-        <div class="timeline" id="learning-log-list">
-          <article class="entry-card">
-            <div class="entry-meta">
-              <span>2026-04-28</span>
-              <span>公开网站发布与持续更新准备</span>
-            </div>
-            <h3>把学习项目整理成可公开访问的个人量化学习网站</h3>
-            <div class="entry-detail">
-              <div>
-                <strong>学到的内容</strong>
-                <ul>
-                  <li>完成了个人量化学习网站的多页面结构整理</li>
-                  <li>开始理解 Git、GitHub 和 Vercel 在公开发布流程里的分工</li>
-                  <li>知道公开网站也要检查内容路径、动态加载和风险声明</li>
-                </ul>
-              </div>
-              <div>
-                <strong>下一步计划</strong>
-                <ul>
-                  <li>继续优化首页公开表达和网站稳定性</li>
-                  <li>补充中国股市基础内容</li>
-                  <li>进入 pandas、收益率和均线的下一阶段学习</li>
-                </ul>
-              </div>
-            </div>
-          </article>
-        </div>
-      </article>
     </section>
   </main>
-
-  <footer class="site-footer">
-    <p>学习日志页面只记录学习过程，不提供任何投资建议。</p>
-    <div class="footer-links">
-      <a href="../LEARNING_PROGRESS.md">查看学习进度文档</a>
-      <a href="../content/learning-log.json">查看日志数据文件</a>
-      <a href="./weekly-review.html">查看每周复盘</a>
-    </div>
-  </footer>
-
-  <script type="module" src="../assets/app.js"></script>
 </body>
 </html>

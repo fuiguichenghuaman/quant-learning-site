@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="当前处于策略学习准备阶段，先整理模板、假设和风险边界，再进入正式回测。"
+  >
+  <title>策略学习 | 从零开始学量化交易</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-page="strategies" data-content-root="../content">
+  <header class="site-topbar">
+    <div class="site-shell bar">
+      <div class="brand">
+        <div class="brand-mark">Q</div>
+        <div>
+          <p class="brand-title">从零开始学量化交易</p>
+          <p class="brand-subtitle">策略学习</p>
+        </div>
+      </div>
+      <nav class="site-nav">
+        <a href="../index.html" data-nav="home">首页</a>
+        <a href="./roadmap.html" data-nav="roadmap">学习路线</a>
+        <a href="./notes.html" data-nav="notes">学习笔记</a>
+        <a href="./labs.html" data-nav="labs">代码实验</a>
+        <a href="./strategies.html" data-nav="strategies">策略学习</a>
+        <a href="./debug-log.html" data-nav="debug-log">踩坑记录</a>
+        <a href="./weekly-review.html" data-nav="weekly-review">每周复盘</a>
+        <a href="./about.html" data-nav="about">关于与留言</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="hero-dashboard">
+      <div>
+        <div class="eyebrow">Strategy Learning</div>
+        <h1 class="hero-title">先学假设、规则和回测边界，再谈策略</h1>
+        <p class="hero-subtitle">
+          当前页面不是成熟策略库，而是策略学习准备区。后续会从均线策略、收益率计算和简单回测开始，
+          不展示虚构收益，也不输出投资建议。
+        </p>
+      </div>
+      <aside class="hero-side">
+        <article class="hero-stat-card">
+          <h3>当前状态</h3>
+          <p>处于“策略学习准备阶段”。重点是模板化思考：数据从哪里来、规则怎么写、风险控制怎么补、回测边界怎么定。</p>
+        </article>
+      </aside>
+    </section>
+
+    <section class="section-stack">
+      <article class="section-panel" id="strategies-overview">
+        <div class="strategy-overview-card">
+          <div class="entry-meta">
+            <span>学习准备区</span>
+            <span>不展示虚构收益</span>
+          </div>
+          <h2>当前还处于策略学习准备阶段</h2>
+          <p>后续会先从均线策略、收益率计算和简单回测开始，先把规则结构写明白，再逐步进入正式实验。</p>
+        </div>
+      </article>
+
+      <div class="review-grid">
+        <article class="section-panel" id="strategies-first">
+          <div class="strategy-template-card">
+            <h2>第一个计划策略：均线策略</h2>
+            <p>这是当前计划中的第一份策略学习模板，不是成熟策略库。</p>
+          </div>
+        </article>
+
+        <article class="section-panel" id="strategies-checklist">
+          <div class="checklist-card">
+            <h2>回测前必须检查的假设</h2>
+            <ul>
+              <li>价格数据是否完整且按时间排序</li>
+              <li>是否考虑了 T+1、涨跌停和交易成本</li>
+              <li>是否明确了入场和出场规则</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <article class="section-panel" id="strategies-template">
+        <div class="template-list-card">
+          <h2>策略模板字段</h2>
+          <ol class="ordered-list">
+            <li>策略名称</li>
+            <li>核心假设</li>
+            <li>使用数据</li>
+            <li>入场规则</li>
+            <li>出场规则</li>
+            <li>风险控制</li>
+          </ol>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>策略学习页现在只做准备区，不展示虚构回测结果，也不输出任何交易指令或结果承诺。</p>
+    <div class="footer-links">
+      <a href="./roadmap.html">回到学习路线</a>
+      <a href="./notes.html#module-quant-basics">查看量化基础笔记</a>
+      <a href="https://github.com/fuiguichenghuaman/quant-learning-site/blob/main/content/strategies.json">查看策略模板源文件</a>
+    </div>
+  </footer>
+
+  <script type="module" src="../assets/app.js"></script>
+</body>
+</html>

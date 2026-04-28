@@ -1,0 +1,77 @@
+{
+  "labs": [
+    {
+      "id": "lab-site",
+      "date": "2026-04-28",
+      "title": "量化学习网站搭建实验",
+      "status": "已完成首个公开版本",
+      "goal": "把原本分散的学习记录、代码实验和周复盘整理成一个可公开访问、可持续维护的静态网站。",
+      "data": "本实验主要使用页面文件、内容 JSON / Markdown 文件和 GitHub / Vercel 发布流程，不依赖单独的行情数据集。",
+      "keyCode": "npm install\nnpm run build\nnpm run preview",
+      "runMethod": "npm install 后执行 npm run build，再用 npm run preview 检查 dist 产物。",
+      "output": "网站已能在 GitHub 仓库和 Vercel 线上访问，并且支持多页面内容加载。",
+      "problems": [
+        "需要确认 Vite 多页面构建后 content 路径是否正确",
+        "需要避免页面只停留在“正在加载”状态",
+        "需要把公开表达改得更正式、更适合长期展示"
+      ],
+      "learned": [
+        "静态网站也可以通过 JSON / Markdown 内容文件组织成可维护的学习实验室",
+        "公开网站除了页面外观，更重要的是内容路径、构建流程和合规表达",
+        "GitHub 和 Vercel 的配合适合当前这种低成本公开项目"
+      ],
+      "nextStep": [
+        "继续补学习路线、互动功能和更多实验内容",
+        "逐步把评论、路线图和任务清单做成更系统的体验"
+      ]
+    },
+    {
+      "id": "lab-csv-columns",
+      "date": "2026-04-24",
+      "title": "CSV 指定列读取实验",
+      "status": "已完成基础版本",
+      "goal": "使用 numpy 读取本地 A 股样例 CSV 文件中的指定列，并验证脚本能稳定运行。",
+      "data": "demo.csv，当前主要使用收盘价、成交量、最高价和最低价这些基础列。",
+      "keyCode": "from pathlib import Path\nimport numpy as np\n\nfile_name = Path(__file__).with_name(\"demo.csv\")\nend_price, volume = np.loadtxt(\n    fname=file_name,\n    delimiter=\",\",\n    usecols=(2, 6),\n    unpack=True,\n    encoding=\"utf-8-sig\"\n)",
+      "runMethod": "python TestNumpyStock.py",
+      "output": "终端可以打印收盘价数组、成交量数组、最高价最大值和最低价最小值，并通过 unittest 的两个测试。",
+      "problems": [
+        "delimiter、usecols 和 encoding 容易写错",
+        "绝对路径不适合公开仓库和多设备运行",
+        "一开始不熟悉 unittest 输出顺序和点号含义"
+      ],
+      "learned": [
+        "CSV 读取的关键不只是代码能跑，还要理解每个参数控制什么",
+        "路径和编码问题是可复现性的基础",
+        "基础统计是后续收益率和均线实验的起点"
+      ],
+      "nextStep": [
+        "把读取逻辑迁移到 pandas",
+        "在读取结果基础上增加收益率和均线计算"
+      ]
+    },
+    {
+      "id": "lab-pandas-returns",
+      "date": "2026-04-29",
+      "title": "pandas 收益率实验（待补充）",
+      "status": "待补充",
+      "goal": "用 pandas 读取样例数据，计算最基础的日收益率，并为第一个简单策略做准备。",
+      "data": "计划先继续使用 demo.csv，后续再替换成更规范的 A 股日线数据。",
+      "keyCode": "import pandas as pd\n\ndf = pd.read_csv(\"demo.csv\")\n# 待补充：选择收盘价列并计算收益率",
+      "runMethod": "待补充：完成 pandas.read_csv、列选择和收益率计算后再固定运行方式。",
+      "output": "待补充：目标是输出第一版收盘价序列和收益率序列。",
+      "problems": [
+        "当前还不熟悉 pandas 的表格结构和列名处理",
+        "需要先确定样例数据列在 pandas 中的表达方式"
+      ],
+      "learned": [
+        "这一项还没有完成，但已经明确了下一阶段的学习目标",
+        "后续会在这一实验基础上进入均线和价格曲线可视化"
+      ],
+      "nextStep": [
+        "先完成 pandas.read_csv 入门",
+        "再写出收益率和均线的第一版实验"
+      ]
+    }
+  ]
+}

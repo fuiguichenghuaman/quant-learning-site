@@ -1,0 +1,66 @@
+{
+  "filters": [
+    "全部",
+    "Python",
+    "数据文件",
+    "网站部署",
+    "Git"
+  ],
+  "entries": [
+    {
+      "date": "2026-04-24",
+      "category": "Python",
+      "title": "py 命令无法识别",
+      "symptom": "PowerShell 提示 py 不是可识别的命令，导致一开始不知道应该用哪个命令安装库或运行脚本。",
+      "wrongGuess": "一开始以为是 pip 或 numpy 的问题，觉得是库没有装好。",
+      "realReason": "Windows 没有可用的 py launcher，或者 Python 没有加入 PATH，导致命令本身就找不到。",
+      "solution": "改用 python -m pip install numpy，或者先检查 Python 的安装路径和 VS Code 选择的解释器。",
+      "lesson": "以后先确认 Python 命令本身能否运行，再去安装库或排查第三方包。",
+      "learned": "环境问题经常会伪装成库问题，先检查最底层命令是否可用。 "
+    },
+    {
+      "date": "2026-04-23",
+      "category": "数据文件",
+      "title": "Excel 转 CSV 不熟",
+      "symptom": "看到同一份样例数据有 Excel 和 CSV 两种格式时，不清楚哪一种适合代码读取，也不熟悉格式转换。",
+      "wrongGuess": "一开始以为代码必须直接读取 Excel，或者 CSV 会丢失重要信息。",
+      "realReason": "对数据文件格式的用途还不熟。CSV 更适合轻量读取，Excel 更适合人工查看和对照。",
+      "solution": "先保留 CSV 作为脚本读取用数据，再把 Excel 当成结构和列信息的参照。",
+      "lesson": "以后先区分“给人看”的格式和“给代码读”的格式，再决定工具和流程。",
+      "learned": "数据文件本身也有分工，格式选择会影响后续代码复杂度。 "
+    },
+    {
+      "date": "2026-04-24",
+      "category": "Python",
+      "title": "Python 文件路径不熟",
+      "symptom": "脚本明明在本地，但运行时常常找不到 demo.csv，不确定 ./demo.csv 到底指向哪里。",
+      "wrongGuess": "一开始以为是 CSV 文件名错了，或者 VS Code 自己把文件弄丢了。",
+      "realReason": "没有分清“当前运行目录”和“当前 Python 文件所在目录”不是同一个概念。",
+      "solution": "改用 Path(__file__).with_name(\"demo.csv\") 这种和脚本同目录绑定的写法。",
+      "lesson": "以后写本地脚本时，优先使用相对稳定的路径写法，不依赖某台电脑上的绝对路径。",
+      "learned": "路径问题不是小事，它直接决定脚本能不能在别的电脑和仓库里复现。 "
+    },
+    {
+      "date": "2026-04-24",
+      "category": "数据文件",
+      "title": "numpy 读取 CSV 时容易搞错 delimiter / usecols / encoding",
+      "symptom": "脚本运行时报错，或者读取出来的列不对、编码不对、数据位置不对。",
+      "wrongGuess": "一开始以为数据文件坏了，或者 numpy 本身不稳定。",
+      "realReason": "CSV 是结构化文本，逗号分隔、列序号和编码方式都需要明确指定，尤其是 usecols 和 utf-8-sig 容易出错。",
+      "solution": "明确写出 delimiter=','、usecols=(2, 6)、encoding='utf-8-sig'，再逐项检查输出结果。",
+      "lesson": "以后不要把读取参数当成“复制就行”的样板，要理解每个参数到底控制什么。",
+      "learned": "参数写对和理解参数，是量化代码里很重要的第一步。 "
+    },
+    {
+      "date": "2026-04-28",
+      "category": "网站部署",
+      "title": "Vercel 线上部署看起来没有同步最新 GitHub 内容",
+      "symptom": "GitHub 仓库里已经是新版，但打开线上网站时，感觉页面还是旧的。",
+      "wrongGuess": "一开始怀疑是代码没 push，或者 Vercel 没有真正拉到 main 分支。",
+      "realReason": "实际检查后发现 GitHub 和 Vercel 已经是新版，更可能是浏览器缓存、标签页没有刷新，或者看的其实是本地 127.0.0.1 页面。",
+      "solution": "先用 git status、git log、git push 和 npm run build 确认本地状态，再去 Vercel 查看 Deployments，必要时用无痕窗口、Ctrl + F5 或 ?v=2 方式验证。",
+      "lesson": "以后先区分“本地预览页”和“线上地址”，再排查缓存与部署状态，不要直接把问题归因到代码本身。",
+      "learned": "网站发布问题往往是代码、构建、部署和浏览器缓存共同作用的结果。 "
+    }
+  ]
+}

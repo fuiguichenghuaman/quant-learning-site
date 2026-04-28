@@ -15,12 +15,17 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: resolve(__dirname, "index.html"),
+        roadmap: resolve(__dirname, "pages/roadmap.html"),
+        notes: resolve(__dirname, "pages/notes.html"),
+        labs: resolve(__dirname, "pages/labs.html"),
+        strategies: resolve(__dirname, "pages/strategies.html"),
+        debugLog: resolve(__dirname, "pages/debug-log.html"),
+        weeklyReview: resolve(__dirname, "pages/weekly-review.html"),
+        about: resolve(__dirname, "pages/about.html"),
         learningLog: resolve(__dirname, "pages/learning-log.html"),
         codeExperiments: resolve(__dirname, "pages/code-experiments.html"),
         strategyLab: resolve(__dirname, "pages/strategy-lab.html"),
-        marketBasics: resolve(__dirname, "pages/market-basics.html"),
-        weeklyReview: resolve(__dirname, "pages/weekly-review.html"),
-        about: resolve(__dirname, "pages/about.html")
+        marketBasics: resolve(__dirname, "pages/market-basics.html")
       }
     }
   }

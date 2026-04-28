@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="按模块整理中国股市基础、Python 基础和量化基础的学习笔记，并保留最近学习时间线。"
+  >
+  <title>学习笔记 | 从零开始学量化交易</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-page="notes" data-content-root="../content">
+  <header class="site-topbar">
+    <div class="site-shell bar">
+      <div class="brand">
+        <div class="brand-mark">Q</div>
+        <div>
+          <p class="brand-title">从零开始学量化交易</p>
+          <p class="brand-subtitle">学习笔记</p>
+        </div>
+      </div>
+      <nav class="site-nav">
+        <a href="../index.html" data-nav="home">首页</a>
+        <a href="./roadmap.html" data-nav="roadmap">学习路线</a>
+        <a href="./notes.html" data-nav="notes">学习笔记</a>
+        <a href="./labs.html" data-nav="labs">代码实验</a>
+        <a href="./strategies.html" data-nav="strategies">策略学习</a>
+        <a href="./debug-log.html" data-nav="debug-log">踩坑记录</a>
+        <a href="./weekly-review.html" data-nav="weekly-review">每周复盘</a>
+        <a href="./about.html" data-nav="about">关于与留言</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="hero-dashboard">
+      <div>
+        <div class="eyebrow">Notes</div>
+        <h1 class="hero-title">把学习笔记按模块整理，而不是堆成一页文章</h1>
+        <p class="hero-subtitle">
+          这里分成中国股市基础、Python 基础和量化基础三个模块。
+          每张卡片会标记当前状态、难度和关联代码实验，方便公开展示也方便后续补写。
+        </p>
+      </div>
+      <aside class="hero-side">
+        <article class="hero-stat-card">
+          <h3>阅读方式</h3>
+          <p>可以先从左侧模块目录切换，再用“阅读入口”跳到详细笔记；页面底部还会保留最近学习时间线，作为公开成长档案。</p>
+        </article>
+      </aside>
+    </section>
+
+    <section class="section-stack">
+      <div class="sidebar-layout">
+        <aside class="anchor-nav">
+          <h2>模块目录</h2>
+          <div id="notes-module-nav">
+            <a class="anchor-link" href="#module-china-basics">
+              <span>中国股市基础</span>
+              <small>6 篇</small>
+            </a>
+          </div>
+        </aside>
+
+        <section>
+          <div class="module-summary-grid" id="notes-module-grid">
+            <section class="module-summary" id="module-china-basics">
+              <div class="section-head compact">
+                <div>
+                  <h2 class="section-title">中国股市基础</h2>
+                  <p class="section-subtitle">先学市场规则和常见概念，再去理解数据字段和后续的量化指标。</p>
+                </div>
+              </div>
+              <div class="note-card-grid">
+                <article class="note-card">
+                  <div class="entry-meta">
+                    <span>入门</span>
+                    <span>已完成</span>
+                  </div>
+                  <h3>A 股是什么</h3>
+                  <p>理解 A 股市场的基本范围、交易场所和后续量化学习的市场背景。</p>
+                  <div class="note-links">
+                    <span class="mini-label">关联实验：待补充</span>
+                    <a href="#note-a-share">阅读入口</a>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </div>
+
+          <div class="detail-stack" id="notes-detail-sections">
+            <article class="note-detail-card" id="note-a-share">
+              <div class="section-head compact">
+                <div>
+                  <h3 class="section-title small">A 股是什么</h3>
+                  <p class="section-subtitle">这是中国股市基础模块里最先要搞清楚的概念之一。</p>
+                </div>
+                <div class="inline-badges">
+                  <span class="status-badge is-done">已完成</span>
+                  <span class="status-badge">入门</span>
+                </div>
+              </div>
+              <div class="note-related">
+                <strong>关联代码实验：</strong>
+                <span>待补充</span>
+              </div>
+              <div class="markdown">
+                <p>A 股通常指在中国内地证券交易所上市、以人民币交易的股票。</p>
+              </div>
+            </article>
+          </div>
+
+          <article class="section-panel" id="notes-log">
+            <div class="section-head">
+              <div>
+                <h2 class="section-title">最近学习时间线</h2>
+                <p class="section-subtitle">学习笔记不只保留知识点，也保留最近一段真实学习过程。</p>
+              </div>
+              <span class="tag">Merged from learning log</span>
+            </div>
+            <div class="timeline-stack" id="notes-log-list">
+              <article class="timeline-entry">
+                <div class="timeline-date">2026-04-28</div>
+                <div class="timeline-card">
+                  <div class="entry-meta">
+                    <span>公开网站发布与持续更新准备</span>
+                  </div>
+                  <h3>把学习项目整理成可公开访问的个人量化学习网站</h3>
+                </div>
+              </article>
+            </div>
+          </article>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>学习笔记页用来整理概念，不用来输出投资结论。重点是把理解过程写清楚，把术语和代码实验连起来。</p>
+    <div class="footer-links">
+      <a href="./labs.html">查看关联实验</a>
+      <a href="./debug-log.html">查看踩坑记录</a>
+      <a href="https://github.com/fuiguichenghuaman/quant-learning-site/blob/main/content/notes.json">查看笔记源文件</a>
+    </div>
+  </footer>
+
+  <script type="module" src="../assets/app.js"></script>
+</body>
+</html>

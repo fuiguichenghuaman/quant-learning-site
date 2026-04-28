@@ -1,0 +1,22 @@
+{
+  "latest": "2026-04-28-first-week-review",
+  "reviews": [
+    {
+      "id": "2026-04-28-first-week-review",
+      "date": "2026-04-28",
+      "title": "第一周量化学习复盘：从本地代码到公开网站",
+      "file": "weekly-reviews/2026-04-28-first-week-review.md",
+      "summary": "这一周主要完成了本地 Python / numpy 数据读取、样例文件理解、学习日志整理，以及 GitHub 上传和 Vercel 公开部署。",
+      "highlights": [
+        "跑通 Python / numpy 基础数据读取",
+        "建立个人量化学习网站",
+        "完成 GitHub 上传与 Vercel 部署"
+      ],
+      "nextFocus": [
+        "学习 pandas",
+        "学习收益率计算",
+        "学习均线并尝试画价格曲线"
+      ]
+    }
+  ]
+}

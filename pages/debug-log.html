@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="记录从零学习量化交易过程中遇到的真实错误、误判、原因、解决方法和经验提醒。"
+  >
+  <title>踩坑记录 | 从零开始学量化交易</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-page="debug-log" data-content-root="../content">
+  <header class="site-topbar">
+    <div class="site-shell bar">
+      <div class="brand">
+        <div class="brand-mark">Q</div>
+        <div>
+          <p class="brand-title">从零开始学量化交易</p>
+          <p class="brand-subtitle">踩坑记录</p>
+        </div>
+      </div>
+      <nav class="site-nav">
+        <a href="../index.html" data-nav="home">首页</a>
+        <a href="./roadmap.html" data-nav="roadmap">学习路线</a>
+        <a href="./notes.html" data-nav="notes">学习笔记</a>
+        <a href="./labs.html" data-nav="labs">代码实验</a>
+        <a href="./strategies.html" data-nav="strategies">策略学习</a>
+        <a href="./debug-log.html" data-nav="debug-log">踩坑记录</a>
+        <a href="./weekly-review.html" data-nav="weekly-review">每周复盘</a>
+        <a href="./about.html" data-nav="about">关于与留言</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="hero-dashboard">
+      <div>
+        <div class="eyebrow">Debug Log</div>
+        <h1 class="hero-title">公开学习实验室不仅展示成果，也记录错误</h1>
+        <p class="hero-subtitle">
+          这一页记录真实踩坑过程：症状是什么、当时误判了什么、真正原因是什么、怎么解决、我学到了什么。
+          对后来者来说，这些往往比“顺利跑通”的结果更有价值。
+        </p>
+      </div>
+      <aside class="hero-side">
+        <article class="hero-stat-card">
+          <h3>筛选方式</h3>
+          <p>支持按 Python、数据文件、网站部署和 Git 四类筛选，方便读者集中看自己最容易遇到的问题。</p>
+        </article>
+      </aside>
+    </section>
+
+    <section class="section-stack">
+      <article class="section-panel">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">错误档案</h2>
+            <p class="section-subtitle" id="debug-count">当前显示 0 条踩坑记录</p>
+          </div>
+          <span class="tag">真实问题</span>
+        </div>
+        <div class="filter-bar" id="debug-filter-bar">
+          <button type="button" class="filter-chip is-selected">全部</button>
+        </div>
+        <div class="section-stack" id="debug-entry-list">
+          <article class="debug-card">
+            <div class="entry-meta">
+              <span>2026-04-28</span>
+              <span>网站部署</span>
+            </div>
+            <h3>Vercel 线上部署没有同步最新 GitHub 内容</h3>
+            <div class="debug-grid">
+              <section>
+                <h4>错误现象</h4>
+                <p>GitHub 仓库内容已经更新，但线上网站看起来像旧版本。</p>
+              </section>
+              <section>
+                <h4>我学到了什么</h4>
+                <p>以后遇到部署不同步，要先检查分支、构建是否成功、再检查缓存和 Vercel Deployments 页面。</p>
+              </section>
+            </div>
+          </article>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>踩坑记录页不是为了放大错误，而是为了把错误沉淀成经验，减少后来重复踩同样的坑。</p>
+    <div class="footer-links">
+      <a href="./labs.html">查看相关实验</a>
+      <a href="./roadmap.html">回到学习路线</a>
+      <a href="https://github.com/fuiguichenghuaman/quant-learning-site/blob/main/content/debug-log.json">查看踩坑源文件</a>
+    </div>
+  </footer>
+
+  <script type="module" src="../assets/app.js"></script>
+</body>
+</html>

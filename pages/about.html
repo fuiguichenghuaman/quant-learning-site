@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="关于这个公开学习网站：我正在从零系统学习中国股市、Python 数据分析和量化交易基础，网站用于学习记录和技术交流。">
-  <title>关于我 | 从零开始学量化交易</title>
+  <meta
+    name="description"
+    content="关于这个公开量化学习实验室的定位、边界和留言入口。"
+  >
+  <title>关于与留言 | 从零开始学量化交易</title>
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body data-page="about" data-content-root="../content">
@@ -12,92 +15,83 @@
     <div class="site-shell bar">
       <div class="brand">
         <div class="brand-mark">Q</div>
-        <div class="brand-copy">
+        <div>
           <p class="brand-title">从零开始学量化交易</p>
-          <p class="brand-subtitle">关于我</p>
+          <p class="brand-subtitle">关于与留言</p>
         </div>
       </div>
       <nav class="site-nav">
         <a href="../index.html" data-nav="home">首页</a>
-        <a href="./learning-log.html" data-nav="learning-log">学习日志</a>
-        <a href="./code-experiments.html" data-nav="code-experiments">代码实验</a>
-        <a href="./strategy-lab.html" data-nav="strategy-lab">策略学习笔记</a>
-        <a href="./market-basics.html" data-nav="market-basics">中国股市基础</a>
+        <a href="./roadmap.html" data-nav="roadmap">学习路线</a>
+        <a href="./notes.html" data-nav="notes">学习笔记</a>
+        <a href="./labs.html" data-nav="labs">代码实验</a>
+        <a href="./strategies.html" data-nav="strategies">策略学习</a>
+        <a href="./debug-log.html" data-nav="debug-log">踩坑记录</a>
         <a href="./weekly-review.html" data-nav="weekly-review">每周复盘</a>
-        <a href="./about.html" data-nav="about">关于我</a>
+        <a href="./about.html" data-nav="about">关于与留言</a>
       </nav>
     </div>
   </header>
 
   <main class="page-main">
-    <section class="hero">
-      <div class="hero-copy">
-        <div class="eyebrow">关于我 · 公开学习者</div>
-        <h1 class="hero-title">一个正在系统学习中国股市、Python 数据分析和量化交易基础的人</h1>
+    <section class="hero-dashboard">
+      <div>
+        <div class="eyebrow">About & Discussion</div>
+        <h1 class="hero-title">这是一个从零学习量化交易的公开实验室</h1>
         <p class="hero-subtitle">
-          我正在从零系统学习中国股市、Python 数据分析和量化交易基础。这个网站用于记录学习路径、代码实验、策略复盘和踩坑过程，也服务于自我复盘、公开学习和技术交流。
+          我正在从零系统学习中国股市、Python 数据分析和量化交易基础。
+          这个网站用于记录学习路径、代码实验、策略复盘和踩坑过程，服务于自我复盘、公开学习和技术交流。
         </p>
       </div>
       <aside class="hero-side">
-        <div class="side-card">
-          <h3>网站用途</h3>
-          <p>记录学习路径、整理代码实验、沉淀复盘内容，并把真实的学习过程持续公开出来。</p>
-        </div>
-        <div class="side-card">
+        <article class="hero-stat-card">
           <h3>内容边界</h3>
-          <p>我不会在这里提供个股买卖建议，也不会承诺收益。这里记录的是学习和实验，不是投资结论。</p>
-        </div>
+          <p>我不会在这里提供个股买卖建议，也不会承诺收益。这里记录的是学习过程与技术实验，不是投资结论。</p>
+        </article>
       </aside>
     </section>
 
-    <section class="section-grid">
-      <article class="section-card">
-        <div class="section-head">
-          <div>
-            <h2 class="section-title">这个网站主要记录什么</h2>
-            <p class="section-subtitle">重点不是塑造“已经很懂”的形象，而是持续整理真实的学习路径。</p>
+    <section class="section-stack">
+      <div class="review-grid">
+        <article class="section-panel">
+          <div class="about-card">
+            <h2>这个网站主要做什么</h2>
+            <p>第一，它记录学习路线，帮助我自己知道当前进度和下一步重点。第二，它保存代码实验和踩坑记录，让学习过程可以被复盘。第三，它把每周复盘与策略学习笔记公开出来，方便后来者看到一个普通人从零起步时真实会遇到什么问题，又是如何一步一步解决的。</p>
           </div>
-          <span class="tag">公开学习记录</span>
-        </div>
-        <div class="three-column">
-          <article class="info-card">
-            <h3>学习路径</h3>
-            <p>记录自己如何理解中国股市基础概念、如何搭建本地环境、如何从读不懂代码到逐步理解变量、函数和文件结构。</p>
-          </article>
-          <article class="info-card">
-            <h3>代码实验</h3>
-            <p>把每个脚本做了什么、为什么这样写、现在能跑到哪一步、下一步准备怎么继续，长期整理成可回看的档案。</p>
-          </article>
-          <article class="info-card">
-            <h3>策略复盘与周总结</h3>
-            <p>随着学习推进，逐步补充策略学习笔记、每周复盘和后续回测准备，让网站既能自我复盘，也适合公开交流。</p>
-          </article>
-        </div>
-      </article>
+        </article>
 
-      <article class="section-card">
+        <article class="section-panel">
+          <div class="discussion-card">
+            <h2>留言与交流</h2>
+            <p>当前没有后端评论系统，所以先使用 GitHub Discussions 作为低成本留言区。这样不会增加维护负担，也能保留公开讨论记录。</p>
+            <div class="discussion-actions">
+              <a class="button primary" href="https://github.com/fuiguichenghuaman/quant-learning-site/discussions" data-discussions-link>去 GitHub Discussions 留言</a>
+              <a class="button secondary" href="https://github.com/fuiguichenghuaman/quant-learning-site">查看仓库</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <article class="section-panel">
         <div class="section-head">
           <div>
-            <h2 class="section-title">风险提示与声明</h2>
-            <p class="section-subtitle">下面的内容来自项目里的声明文件，会和网站一起长期保留。</p>
+            <h2 class="section-title">风险声明</h2>
+            <p class="section-subtitle">这一部分会读取项目中的声明文件。即使读取失败，页面上方的边界说明也仍然保留。</p>
           </div>
-          <span class="tag">合规说明</span>
         </div>
-        <div class="disclaimer-card">
-          <div class="markdown" id="disclaimer-markdown">
-            <p>本网站主要服务于自我复盘、公开学习和技术交流，不荐股、不承诺收益、不提供买卖建议。</p>
-          </div>
+        <div class="markdown" id="about-disclaimer">
+          <p>本网站内容仅用于学习记录、代码实验和技术交流，不构成投资建议。</p>
         </div>
       </article>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>关于我页面用于说明网站定位与边界，不构成投资建议。</p>
+    <p>关于与留言页负责说明实验室的定位、内容边界和公开交流方式，帮助读者在进入内容前先建立正确预期。</p>
     <div class="footer-links">
       <a href="https://github.com/fuiguichenghuaman/quant-learning-site">查看 GitHub 仓库</a>
+      <a href="https://github.com/fuiguichenghuaman/quant-learning-site/discussions" data-discussions-link>进入 Discussions</a>
       <a href="../content/disclaimer.md">查看声明原文</a>
-      <a href="../LEARNING_PROGRESS.md">查看当前学习进度</a>
     </div>
   </footer>
 

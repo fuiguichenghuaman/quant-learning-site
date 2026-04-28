@@ -1,0 +1,268 @@
+{
+  "currentStage": "stage-2",
+  "dashboard": {
+    "currentStageTitle": "Python 数据处理与 pandas 入门",
+    "progress": 30,
+    "completed": [
+      "Python、VS Code 与 Git 基础环境配置",
+      "CSV 样例数据读取",
+      "GitHub 仓库上传",
+      "Vercel 网站部署"
+    ],
+    "active": [
+      "pandas 基础读取与表格结构理解",
+      "收益率的概念和计算",
+      "均线的概念和初步代码实现",
+      "价格曲线与成交量图的第一版可视化"
+    ],
+    "next": "第一个简单均线策略"
+  },
+  "stages": [
+    {
+      "id": "stage-0",
+      "title": "工具与环境",
+      "status": "done",
+      "progress": 100,
+      "description": "安装 Python、VS Code、Git，理解本地项目、命令行和 GitHub 上传流程。",
+      "representativeResult": "已经能在本地运行 Python、构建网站，并将项目推送到 GitHub。",
+      "nextTask": "把本地样例数据稳定读进 Python。",
+      "modules": [
+        {
+          "title": "环境配置",
+          "summary": "先让工具正常工作，再谈代码实验。",
+          "tasks": [
+            {
+              "id": "stage-0-python-install",
+              "title": "安装 Python",
+              "status": "done",
+              "output": "可以在终端里运行 Python 脚本"
+            },
+            {
+              "id": "stage-0-vscode",
+              "title": "理解 VS Code、终端和解释器的关系",
+              "status": "done",
+              "output": "知道代码编辑器和 Python 本体不是一回事"
+            },
+            {
+              "id": "stage-0-git",
+              "title": "安装 Git 并上传第一个仓库",
+              "status": "done",
+              "output": "项目已推送到 GitHub main 分支"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-1",
+      "title": "中国股市基础",
+      "status": "in-progress",
+      "progress": 58,
+      "description": "先理解 A 股市场规则、价格图形和交易限制，再去读代码和看策略。",
+      "representativeResult": "已经整理出第一版中国股市基础笔记。",
+      "nextTask": "继续补充财报、换手率、市盈率等基础概念。",
+      "modules": [
+        {
+          "title": "市场结构",
+          "summary": "先知道自己面对的是怎样的市场。",
+          "tasks": [
+            {
+              "id": "stage-1-a-share",
+              "title": "理解 A 股是什么",
+              "status": "done",
+              "output": "知道 A 股、板块与人民币交易的基本背景"
+            },
+            {
+              "id": "stage-1-tplus1",
+              "title": "理解 T+1 与涨跌停规则",
+              "status": "done",
+              "output": "知道规则会影响回测和交易假设"
+            }
+          ]
+        },
+        {
+          "title": "图表与交易语言",
+          "summary": "后续的价格分析和可视化都离不开这些概念。",
+          "tasks": [
+            {
+              "id": "stage-1-kline",
+              "title": "看懂 K 线、成交量和均线",
+              "status": "done",
+              "output": "已经写成第一版笔记"
+            },
+            {
+              "id": "stage-1-financing",
+              "title": "理解融资融券的基础含义",
+              "status": "done",
+              "output": "知道它代表的是更高风险和更高复杂度"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Python 数据处理",
+      "status": "current",
+      "progress": 30,
+      "description": "从本地 CSV 数据读取开始，逐步进入 pandas、收益率、均线和数据可视化。",
+      "representativeResult": "已经跑通 numpy 读取 CSV 指定列，并开始设计 pandas 入门实验。",
+      "nextTask": "完成第一个 pandas 收益率实验。",
+      "modules": [
+        {
+          "title": "文件与数据读取",
+          "summary": "先把文件路径、CSV 结构和编码问题搞明白。",
+          "tasks": [
+            {
+              "id": "stage-2-path",
+              "title": "理解文件路径和相对路径",
+              "status": "done",
+              "output": "当前脚本已改用 Path(__file__).with_name(\"demo.csv\")"
+            },
+            {
+              "id": "stage-2-numpy-csv",
+              "title": "使用 numpy 读取 CSV 指定列",
+              "status": "done",
+              "output": "可以读取收盘价、成交量、最高价和最低价"
+            },
+            {
+              "id": "stage-2-pandas-read",
+              "title": "开始使用 pandas.read_csv()",
+              "status": "current",
+              "output": "待补充：计划作为下一个实验"
+            }
+          ]
+        },
+        {
+          "title": "基础数据处理",
+          "summary": "在读取之后开始理解收益率、均线和可视化。",
+          "tasks": [
+            {
+              "id": "stage-2-returns",
+              "title": "学习收益率计算",
+              "status": "current",
+              "output": "已列入下周计划"
+            },
+            {
+              "id": "stage-2-moving-average",
+              "title": "学习均线的代码实现",
+              "status": "current",
+              "output": "准备作为第一个简单策略前置练习"
+            },
+            {
+              "id": "stage-2-chart",
+              "title": "尝试画价格曲线与成交量图",
+              "status": "planned",
+              "output": "待补充"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "指标计算与可视化",
+      "status": "planned",
+      "progress": 0,
+      "description": "把原始数据转化为可以观察和比较的指标，例如收益率、均线、回撤和图表。",
+      "representativeResult": "待补充：进入 pandas 和 matplotlib 后再补。",
+      "nextTask": "先完成价格曲线、收益率序列和均线曲线。",
+      "modules": [
+        {
+          "title": "基础指标",
+          "summary": "量化学习里的第一批常见指标。",
+          "tasks": [
+            {
+              "id": "stage-3-indicators",
+              "title": "实现收益率、均线和最大回撤的第一版代码",
+              "status": "planned",
+              "output": "待补充"
+            }
+          ]
+        },
+        {
+          "title": "图表表达",
+          "summary": "把数字变成图形，更容易理解趋势和结构。",
+          "tasks": [
+            {
+              "id": "stage-3-visual",
+              "title": "学习 matplotlib 画价格线和成交量图",
+              "status": "planned",
+              "output": "待补充"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "策略回测",
+      "status": "planned",
+      "progress": 0,
+      "description": "在有了数据处理和指标基础之后，开始进入策略假设、规则定义和第一版回测。",
+      "representativeResult": "待补充：从简单均线策略开始。",
+      "nextTask": "建立策略模板，明确入场、出场、回测范围和交易成本。",
+      "modules": [
+        {
+          "title": "策略模板",
+          "summary": "先把结构固定，再逐步填入真实实验内容。",
+          "tasks": [
+            {
+              "id": "stage-4-template",
+              "title": "建立第一个简单均线策略模板",
+              "status": "planned",
+              "output": "待补充"
+            }
+          ]
+        },
+        {
+          "title": "回测假设",
+          "summary": "任何回测都要先解释数据范围和限制。",
+          "tasks": [
+            {
+              "id": "stage-4-assumptions",
+              "title": "检查交易成本、T+1 和涨跌停等约束",
+              "status": "planned",
+              "output": "待补充"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "风险控制与自动化",
+      "status": "planned",
+      "progress": 0,
+      "description": "在策略初步可运行后，再考虑仓位、风险控制、自动化流程和持续维护。",
+      "representativeResult": "待补充：当前还没有进入这一阶段。",
+      "nextTask": "先完成前面阶段，避免过早复杂化。",
+      "modules": [
+        {
+          "title": "风险约束",
+          "summary": "量化系统不只是收益，还包括回撤、仓位和错误处理。",
+          "tasks": [
+            {
+              "id": "stage-5-risk",
+              "title": "建立第一版风险控制清单",
+              "status": "planned",
+              "output": "待补充"
+            }
+          ]
+        },
+        {
+          "title": "自动化维护",
+          "summary": "后续可能会接触定时任务、自动更新和更规范的工程结构。",
+          "tasks": [
+            {
+              "id": "stage-5-automation",
+              "title": "思考如何让数据更新和实验记录更自动化",
+              "status": "planned",
+              "output": "待补充"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

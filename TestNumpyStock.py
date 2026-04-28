@@ -35,6 +35,8 @@ class TestNumpyStock(unittest.TestCase):
         )
         print("max_price={}".format(high_price.max()))
         print("low_price={}".format(low_price.min()))
+
+        
 if __name__ == "__main__":
     unittest.main()
     
