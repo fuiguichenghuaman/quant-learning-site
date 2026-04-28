@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="策略实验室用于长期展示量化策略逻辑、使用数据、核心代码、回测结果、风险与不足。">
-  <title>策略实验室 | 从零开始学量化交易</title>
+  <meta name="description" content="策略学习笔记用于记录量化策略学习准备、使用数据、核心代码方向、限制条件和后续计划。">
+  <title>策略学习笔记 | 从零开始学量化交易</title>
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body data-page="strategy-lab" data-content-root="../content">
@@ -14,14 +14,14 @@
         <div class="brand-mark">Q</div>
         <div class="brand-copy">
           <p class="brand-title">从零开始学量化交易</p>
-          <p class="brand-subtitle">策略实验室</p>
+          <p class="brand-subtitle">策略学习笔记</p>
         </div>
       </div>
       <nav class="site-nav">
         <a href="../index.html" data-nav="home">首页</a>
         <a href="./learning-log.html" data-nav="learning-log">学习日志</a>
         <a href="./code-experiments.html" data-nav="code-experiments">代码实验</a>
-        <a href="./strategy-lab.html" data-nav="strategy-lab">策略实验室</a>
+        <a href="./strategy-lab.html" data-nav="strategy-lab">策略学习笔记</a>
         <a href="./market-basics.html" data-nav="market-basics">中国股市基础</a>
         <a href="./weekly-review.html" data-nav="weekly-review">每周复盘</a>
         <a href="./about.html" data-nav="about">关于我</a>
@@ -32,17 +32,16 @@
   <main class="page-main">
     <section class="hero">
       <div class="hero-copy">
-        <div class="eyebrow">策略实验室 · 规划中</div>
-        <h1 class="hero-title">先把模板搭好<br>再让策略一点点长出来</h1>
+        <div class="eyebrow">策略学习笔记 · 准备阶段</div>
+        <h1 class="hero-title">先把数据、规则和思路学明白<br>再进入正式回测</h1>
         <p class="hero-subtitle">
-          当前项目还没有进入完整策略回测阶段，所以这一页会非常诚实地显示“待补充”。
-          这并不是缺点，反而能清楚地告诉别人：网站正在记录的是学习过程，而不是包装成已经成熟的交易系统。
+          当前还处于策略学习准备阶段，后续会先从均线策略、收益率计算和简单回测开始。这里不会展示虚构收益，也不会提供任何投资建议。
         </p>
       </div>
       <aside class="hero-side">
         <div class="side-card">
-          <h3>固定模板的意义</h3>
-          <p>以后每学一个策略，都按同一套模板记录：策略名称、逻辑、使用数据、核心代码、回测结果、风险与不足，以及“不构成投资建议”的说明。</p>
+          <h3>当前页面的定位</h3>
+          <p>这一页更像策略学习备忘录：记录阶段、数据、计划、限制和下一步准备，而不是展示成熟策略结果。</p>
         </div>
       </aside>
     </section>
@@ -51,13 +50,31 @@
       <article class="section-card">
         <div class="section-head">
           <div>
-            <h2 class="section-title">当前策略记录</h2>
-            <p class="section-subtitle">当前内容严格基于项目现状生成，如果尚未进入策略阶段，就明确写“待补充”。</p>
+            <h2 class="section-title">当前策略学习笔记</h2>
+            <p class="section-subtitle">页面会自动读取策略学习内容；即使读取失败，也保留一份默认说明，避免公开页面空白。</p>
           </div>
-          <span class="tag">不编造策略成绩</span>
+          <span class="tag">不虚构收益</span>
         </div>
         <div class="card-grid" id="strategy-list">
-          <div class="empty-state">正在加载策略实验内容...</div>
+          <article class="strategy-card">
+            <h3>策略学习准备：均线、收益率与简单回测</h3>
+            <p>当前重点不是直接展示策略收益，而是先把价格序列、收益率计算、均线概念和简单交易规则假设学清楚，再进入正式回测。</p>
+            <div class="entry-detail">
+              <div>
+                <strong>使用数据</strong>
+                <p>demo.csv（当前样例数据）以及后续更规范的 A 股日线数据</p>
+              </div>
+              <div>
+                <strong>回测结果</strong>
+                <p>当前尚未进入正式回测阶段，因此不展示任何收益率、胜率或资金曲线数据。</p>
+              </div>
+              <div>
+                <strong>当前备注</strong>
+                <p>后续会先从均线策略、收益率计算和简单回测模板开始，而不是虚构策略成绩。</p>
+              </div>
+            </div>
+            <div class="strategy-status">当前处于学习准备阶段</div>
+          </article>
         </div>
       </article>
 
@@ -65,13 +82,13 @@
         <div class="section-head">
           <div>
             <h2 class="section-title">风险提示</h2>
-            <p class="section-subtitle">策略页面尤其需要先把边界讲清楚。</p>
+            <p class="section-subtitle">策略相关页面尤其要先把边界讲清楚。</p>
           </div>
           <span class="tag">合规优先</span>
         </div>
         <div class="disclaimer-card">
           <div class="markdown" id="disclaimer-markdown">
-            <div class="empty-state">正在加载风险声明...</div>
+            <p>本页用于记录策略学习准备、技术实验和后续计划，不构成投资建议，也不提供个股买卖建议。</p>
           </div>
         </div>
       </article>
@@ -79,10 +96,11 @@
   </main>
 
   <footer class="site-footer">
-    <p>策略实验室只用于学习记录、模板积累和技术整理，不构成任何投资建议。</p>
+    <p>策略学习笔记页面只用于学习记录、模板积累和技术整理，不构成任何投资建议。</p>
     <div class="footer-links">
-      <a href="../content/strategy-lab.json">查看策略数据文件</a>
+      <a href="../content/strategy-lab.json">查看策略学习数据文件</a>
       <a href="../content/disclaimer.md">查看风险声明</a>
+      <a href="./market-basics.html">查看中国股市基础</a>
     </div>
   </footer>
 

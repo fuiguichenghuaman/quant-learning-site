@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="用于记录每周学习总结、代码成果、错误处理和下周计划的复盘页面。">
+  <meta name="description" content="用于记录每周学习总结、代码成果、错误处理和下周计划的每周复盘页面。">
   <title>每周复盘 | 从零开始学量化交易</title>
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
@@ -14,14 +14,14 @@
         <div class="brand-mark">Q</div>
         <div class="brand-copy">
           <p class="brand-title">从零开始学量化交易</p>
-          <p class="brand-subtitle">每周复盘模板</p>
+          <p class="brand-subtitle">每周复盘</p>
         </div>
       </div>
       <nav class="site-nav">
         <a href="../index.html" data-nav="home">首页</a>
         <a href="./learning-log.html" data-nav="learning-log">学习日志</a>
         <a href="./code-experiments.html" data-nav="code-experiments">代码实验</a>
-        <a href="./strategy-lab.html" data-nav="strategy-lab">策略实验室</a>
+        <a href="./strategy-lab.html" data-nav="strategy-lab">策略学习笔记</a>
         <a href="./market-basics.html" data-nav="market-basics">中国股市基础</a>
         <a href="./weekly-review.html" data-nav="weekly-review">每周复盘</a>
         <a href="./about.html" data-nav="about">关于我</a>
@@ -32,17 +32,16 @@
   <main class="page-main">
     <section class="hero">
       <div class="hero-copy">
-        <div class="eyebrow">每周复盘 · 固定模板</div>
-        <h1 class="hero-title">每周都留下一个<br>可回头看的小结</h1>
+        <div class="eyebrow">每周复盘 · 第一篇已发布</div>
+        <h1 class="hero-title">把每周的学习内容、问题和进展<br>整理成可回头看的记录</h1>
         <p class="hero-subtitle">
-          对初学者来说，复盘不是形式，而是最重要的积累方式之一。
-          这一页先提供模板，后续每周可以根据真实学习情况继续补充，让公开成长记录更稳定。
+          对初学者来说，复盘不是形式，而是帮助自己梳理路径、发现问题和规划下一步的重要方式。这个页面先收录第一篇正式周复盘，并保留模板，便于后续持续更新。
         </p>
       </div>
       <aside class="hero-side">
         <div class="side-card">
-          <h3>为什么要做周复盘</h3>
-          <p>因为很多学习内容，如果不按周整理，很快就会忘记。固定模板能帮助你每周都知道：学了什么、卡在哪里、下周准备做什么。</p>
+          <h3>这一页包含什么</h3>
+          <p>上方是第一篇真实周复盘，下方保留固定模板。这样以后既能回看真实记录，也能方便继续追加新的一周。</p>
         </div>
       </aside>
     </section>
@@ -51,14 +50,57 @@
       <article class="section-card">
         <div class="section-head">
           <div>
+            <h2 class="section-title">第一篇周复盘</h2>
+            <p class="section-subtitle">这一篇记录了从本地代码、GitHub 上传到 Vercel 部署的第一周学习过程。</p>
+          </div>
+          <span class="tag">2026-04-28</span>
+        </div>
+        <div class="card-grid">
+          <article class="entry-card">
+            <div class="entry-meta">
+              <span>第一周量化学习复盘</span>
+              <span>从本地代码到公开网站</span>
+            </div>
+            <h3>本周重点摘要</h3>
+            <div class="entry-detail">
+              <div>
+                <strong>本周完成的事情</strong>
+                <ul>
+                  <li>整理量化学习项目</li>
+                  <li>跑通 Python / numpy 基础数据读取</li>
+                  <li>建立学习日志与个人量化学习网站</li>
+                  <li>上传 GitHub 并部署到 Vercel</li>
+                </ul>
+              </div>
+              <div>
+                <strong>下周计划</strong>
+                <ul>
+                  <li>学习 pandas</li>
+                  <li>学习收益率计算</li>
+                  <li>学习均线并尝试画价格曲线</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article class="template-card">
+            <div class="markdown" id="weekly-featured-review">
+              <p>第一篇周复盘正在加载中。如果这里没有自动更新，请使用下方链接直接打开 Markdown 原文。</p>
+            </div>
+          </article>
+        </div>
+      </article>
+
+      <article class="section-card">
+        <div class="section-head">
+          <div>
             <h2 class="section-title">每周复盘模板</h2>
-            <p class="section-subtitle">下面内容来自项目里的模板文件，后续你可以按周复制使用。</p>
+            <p class="section-subtitle">下面内容来自项目里的模板文件，后续可以按周复制使用。</p>
           </div>
           <span class="tag">Markdown 模板</span>
         </div>
         <div class="template-card">
           <div class="markdown" id="weekly-template">
-            <div class="empty-state">正在加载每周复盘模板...</div>
+            <p>每周复盘模板正在加载中。即使模板文件没有自动读取成功，这一页也会保留第一篇真实周复盘，避免页面空白。</p>
           </div>
         </div>
       </article>
@@ -68,7 +110,8 @@
   <footer class="site-footer">
     <p>每周复盘页面用于学习总结和公开记录，不构成投资建议。</p>
     <div class="footer-links">
-      <a href="../content/weekly-review-template.md">打开模板文件</a>
+      <a href="../content/weekly-reviews/2026-04-28-first-week-review.md">打开第一篇周复盘原文</a>
+      <a href="../content/weekly-review-template.md">打开复盘模板</a>
       <a href="./learning-log.html">查看学习日志</a>
     </div>
   </footer>

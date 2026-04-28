@@ -1,6 +1,27 @@
 {
   "experiments": [
     {
+      "name": "量化学习网站搭建实验",
+      "status": "已完成首个公开版本",
+      "files": [
+        "index.html",
+        "pages/",
+        "assets/app.js",
+        "content/"
+      ],
+      "dataFiles": [],
+      "summary": "把学习日志、代码实验、策略学习笔记、每周复盘和中国股市基础整理成一个可公开访问的静态网站。",
+      "coreKnowledge": [
+        "Vite 多页面静态网站",
+        "内容文件动态读取",
+        "公开页面文案整理",
+        "GitHub + Vercel 发布流程"
+      ],
+      "runMethod": "npm run dev",
+      "capability": "已经开始把量化学习过程组织成可持续更新的公开网站。",
+      "notes": "重点不在复杂前端框架，而在内容真实、结构稳定和后续容易维护。"
+    },
+    {
       "name": "CSV 指定列读取实验",
       "status": "已完成基础版本",
       "files": [
@@ -19,7 +40,7 @@
       ],
       "runMethod": "python TestNumpyStock.py",
       "capability": "已经可以独立读取本地 A 股样例数据中的指定列。",
-      "notes": "当前使用硬编码绝对路径，适合本地学习，但后续建议改为相对路径。"
+      "notes": "当前脚本已经改为通过 Path(__file__).with_name(\"demo.csv\") 定位样例数据，更适合公开仓库和多设备运行。"
     },
     {
       "name": "最高价最大值 / 最低价最小值实验",
@@ -40,26 +61,7 @@
       ],
       "runMethod": "python TestNumpyStock.py",
       "capability": "已经开始从“读取数据”进入“做最基础的统计处理”。",
-      "notes": "这段实验很适合后续继续延伸到均值、振幅、收益率等指标。"
-    },
-    {
-      "name": "代码讲解与成长记录实验",
-      "status": "进行中",
-      "files": [
-        "TestNumpyStock_explained.py",
-        "learning_record.html"
-      ],
-      "dataFiles": [],
-      "summary": "把代码原理、参数来源、报错理解和学习过程同步整理成说明脚本与网页记录。",
-      "coreKnowledge": [
-        "代码注释整理",
-        "学习过程沉淀",
-        "公开成长型表达",
-        "技术内容可视化展示"
-      ],
-      "runMethod": "直接查看 explained 脚本或打开学习记录网页",
-      "capability": "已经开始建立适合公开展示的量化学习成长档案。",
-      "notes": "这部分不是量化策略本身，但非常适合作为后续自媒体展示基础。"
+      "notes": "这段实验很适合后续继续延伸到均值、收益率、振幅和均线等基础指标。"
     }
   ]
 }

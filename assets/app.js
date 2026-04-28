@@ -12,18 +12,31 @@ const escapeHtml = (value) =>
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
 
+const buildContentUrl = (fileName) => {
+  const normalizedRoot = contentRoot.replace(/\/+$/, "");
+  return new URL(`${normalizedRoot}/${fileName}`, window.location.href).toString();
+};
+
+const makeLoadError = (fileName, error) => `
+  <div class="error-state">
+    <strong>内容文件读取失败</strong>
+    <p>当前页面未能读取 <code>${escapeHtml(fileName)}</code>。请检查 <code>content</code> 目录、页面上的 <code>data-content-root</code> 配置，以及构建产物中的对应文件是否存在。</p>
+    ${error?.message ? `<p>${escapeHtml(error.message)}</p>` : ""}
+  </div>
+`;
+
 const fetchJson = async (fileName) => {
-  const response = await fetch(`${contentRoot}/${fileName}`);
+  const response = await fetch(buildContentUrl(fileName));
   if (!response.ok) {
-    throw new Error(`无法读取内容文件：${fileName}`);
+    throw new Error(`文件 ${fileName} 返回状态 ${response.status}`);
   }
   return response.json();
 };
 
 const fetchText = async (fileName) => {
-  const response = await fetch(`${contentRoot}/${fileName}`);
+  const response = await fetch(buildContentUrl(fileName));
   if (!response.ok) {
-    throw new Error(`无法读取内容文件：${fileName}`);
+    throw new Error(`文件 ${fileName} 返回状态 ${response.status}`);
   }
   return response.text();
 };
@@ -68,6 +81,12 @@ const renderMarkdown = (text) => {
       continue;
     }
 
+    if (line.startsWith("### ")) {
+      closeList();
+      html += `<h4>${escapeHtml(line.slice(4))}</h4>`;
+      continue;
+    }
+
     if (line.startsWith("- ")) {
       if (!inList) {
         html += "<ul>";
@@ -92,12 +111,17 @@ const renderStageSummary = (data) => {
   const stagePercent = byId("stage-percent");
   const stageFocus = byId("stage-focus");
 
-  if (!stageTitle || !data?.currentStage) {
+  if (!data?.currentStage) {
     return;
   }
 
-  stageTitle.textContent = data.currentStage.title;
-  stageSummary.textContent = data.currentStage.summary;
+  if (stageTitle) {
+    stageTitle.textContent = data.currentStage.title;
+  }
+
+  if (stageSummary) {
+    stageSummary.textContent = data.currentStage.summary;
+  }
 
   if (stageProgress) {
     stageProgress.style.width = `${data.currentStage.progressPercent}%`;
@@ -292,9 +316,7 @@ const renderDisclaimer = async () => {
     const text = await fetchText("disclaimer.md");
     target.innerHTML = renderMarkdown(text);
   } catch (error) {
-    target.innerHTML = `<div class="error-state">${escapeHtml(
-      error.message
-    )}</div>`;
+    target.innerHTML = makeLoadError("disclaimer.md", error);
   }
 };
 
@@ -308,9 +330,24 @@ const renderWeeklyTemplate = async () => {
     const text = await fetchText("weekly-review-template.md");
     target.innerHTML = renderMarkdown(text);
   } catch (error) {
-    target.innerHTML = `<div class="error-state">${escapeHtml(
-      error.message
-    )}</div>`;
+    target.innerHTML = makeLoadError("weekly-review-template.md", error);
+  }
+};
+
+const renderFeaturedWeeklyReview = async () => {
+  const target = byId("weekly-featured-review");
+  if (!target) {
+    return;
+  }
+
+  try {
+    const text = await fetchText("weekly-reviews/2026-04-28-first-week-review.md");
+    target.innerHTML = renderMarkdown(text);
+  } catch (error) {
+    target.innerHTML = makeLoadError(
+      "weekly-reviews/2026-04-28-first-week-review.md",
+      error
+    );
   }
 };
 
@@ -328,26 +365,30 @@ const activateNav = () => {
 };
 
 const renderHomeSummary = async () => {
-  try {
-    const [logs, experiments] = await Promise.all([
-      fetchJson("learning-log.json"),
-      fetchJson("code-experiments.json")
-    ]);
+  const [logsResult, experimentsResult] = await Promise.allSettled([
+    fetchJson("learning-log.json"),
+    fetchJson("code-experiments.json")
+  ]);
 
-    renderStageSummary(logs);
-    renderLatestLogs(logs);
-    renderExperiments(experiments, "recent-experiments", 2);
-  } catch (error) {
+  if (logsResult.status === "fulfilled") {
+    renderStageSummary(logsResult.value);
+    renderLatestLogs(logsResult.value);
+  } else {
     const latest = byId("latest-log-list");
-    const recent = byId("recent-experiments");
-    const message = `<div class="error-state">${escapeHtml(
-      error.message
-    )}</div>`;
     if (latest) {
-      latest.innerHTML = message;
+      latest.innerHTML = makeLoadError("learning-log.json", logsResult.reason);
     }
+  }
+
+  if (experimentsResult.status === "fulfilled") {
+    renderExperiments(experimentsResult.value, "recent-experiments", 2);
+  } else {
+    const recent = byId("recent-experiments");
     if (recent) {
-      recent.innerHTML = message;
+      recent.innerHTML = makeLoadError(
+        "code-experiments.json",
+        experimentsResult.reason
+      );
     }
   }
 };
@@ -360,9 +401,7 @@ const renderLearningPage = async () => {
   } catch (error) {
     const target = byId("learning-log-list");
     if (target) {
-      target.innerHTML = `<div class="error-state">${escapeHtml(
-        error.message
-      )}</div>`;
+      target.innerHTML = makeLoadError("learning-log.json", error);
     }
   }
 };
@@ -374,9 +413,7 @@ const renderCodePage = async () => {
   } catch (error) {
     const target = byId("experiments-list");
     if (target) {
-      target.innerHTML = `<div class="error-state">${escapeHtml(
-        error.message
-      )}</div>`;
+      target.innerHTML = makeLoadError("code-experiments.json", error);
     }
   }
 };
@@ -388,9 +425,7 @@ const renderStrategyPage = async () => {
   } catch (error) {
     const target = byId("strategy-list");
     if (target) {
-      target.innerHTML = `<div class="error-state">${escapeHtml(
-        error.message
-      )}</div>`;
+      target.innerHTML = makeLoadError("strategy-lab.json", error);
     }
   }
 };
@@ -415,6 +450,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await renderStrategyPage();
   }
 
+  await renderFeaturedWeeklyReview();
   await renderWeeklyTemplate();
   await renderDisclaimer();
 });

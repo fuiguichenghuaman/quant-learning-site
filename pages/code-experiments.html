@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="展示当前已经完成的 Python 代码实验，包括文件、功能说明、核心知识点和运行方式。">
+  <meta name="description" content="展示当前已经完成的 Python 和网站结构实验，包括涉及文件、功能说明、核心知识点和运行方式。">
   <title>代码实验 | 从零开始学量化交易</title>
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
@@ -14,14 +14,14 @@
         <div class="brand-mark">Q</div>
         <div class="brand-copy">
           <p class="brand-title">从零开始学量化交易</p>
-          <p class="brand-subtitle">代码实验档案</p>
+          <p class="brand-subtitle">代码实验</p>
         </div>
       </div>
       <nav class="site-nav">
         <a href="../index.html" data-nav="home">首页</a>
         <a href="./learning-log.html" data-nav="learning-log">学习日志</a>
         <a href="./code-experiments.html" data-nav="code-experiments">代码实验</a>
-        <a href="./strategy-lab.html" data-nav="strategy-lab">策略实验室</a>
+        <a href="./strategy-lab.html" data-nav="strategy-lab">策略学习笔记</a>
         <a href="./market-basics.html" data-nav="market-basics">中国股市基础</a>
         <a href="./weekly-review.html" data-nav="weekly-review">每周复盘</a>
         <a href="./about.html" data-nav="about">关于我</a>
@@ -33,15 +33,15 @@
     <section class="hero">
       <div class="hero-copy">
         <div class="eyebrow">代码实验 · 真实可运行</div>
-        <h1 class="hero-title">从读数据开始<br>慢慢积累代码手感</h1>
+        <h1 class="hero-title">从读数据、看输出、写页面开始<br>一点点积累代码手感</h1>
         <p class="hero-subtitle">
-          这一页只展示当前项目里真实已经完成的实验，不夸大、不虚构。每个实验都说明涉及文件、功能、知识点和运行方式，方便自己复盘，也方便别人看到一个零基础学习者是怎样一步一步开始的。
+          这一页只展示当前项目里真实已经完成的实验，不夸大、不虚构。既包括 Python 数据读取与基础统计，也包括把学习内容整理成公开网站的结构实验。
         </p>
       </div>
       <aside class="hero-side">
         <div class="side-card">
           <h3>当前代码特点</h3>
-          <p>当前实验还在入门阶段，重点是本地样例数据读取、基础统计和代码结构理解，而不是复杂策略和收益展示。</p>
+          <p>目前重点还是数据读取、基础统计、路径理解和网站整理，而不是复杂回测或收益展示。</p>
         </div>
         <div class="metric-grid">
           <article class="metric-card">
@@ -49,8 +49,8 @@
             <p class="metric-value">Python</p>
           </article>
           <article class="metric-card">
-            <p class="metric-label">当前数据来源</p>
-            <p class="metric-value">CSV / XLSX</p>
+            <p class="metric-label">网站结构</p>
+            <p class="metric-value">Vite / HTML</p>
           </article>
         </div>
       </aside>
@@ -61,12 +61,27 @@
         <div class="section-head">
           <div>
             <h2 class="section-title">实验列表</h2>
-            <p class="section-subtitle">每个卡片都对应当前项目中已经存在的文件和功能。</p>
+            <p class="section-subtitle">页面会优先读取 content 文件；如果读取失败，至少保留下面这部分默认实验卡片。</p>
           </div>
           <span class="tag">自动读取内容文件</span>
         </div>
         <div class="card-grid" id="experiments-list">
-          <div class="empty-state">正在加载代码实验...</div>
+          <article class="entry-card">
+            <div class="entry-meta">
+              <span>已完成基础版本</span>
+              <span>TestNumpyStock.py</span>
+            </div>
+            <h3>CSV 指定列读取实验</h3>
+            <p>使用 numpy.loadtxt() 读取股票样例 CSV 中的收盘价与成交量两列，并打印结果。</p>
+          </article>
+          <article class="entry-card">
+            <div class="entry-meta">
+              <span>已完成首个公开版本</span>
+              <span>index.html / assets/app.js / content/</span>
+            </div>
+            <h3>量化学习网站搭建实验</h3>
+            <p>把学习日志、代码实验、策略学习笔记、每周复盘和中国股市基础整理成可公开访问的静态网站。</p>
+          </article>
         </div>
       </article>
     </section>
@@ -75,8 +90,8 @@
   <footer class="site-footer">
     <p>代码实验用于学习记录和技术整理，不构成投资建议。</p>
     <div class="footer-links">
-      <a href="../TestNumpyStock.py">打开主脚本</a>
-      <a href="../TestNumpyStock_explained.py">打开讲解脚本</a>
+      <a href="https://github.com/fuiguichenghuaman/quant-learning-site/blob/main/TestNumpyStock.py">查看主脚本</a>
+      <a href="https://github.com/fuiguichenghuaman/quant-learning-site/blob/main/TestNumpyStock_explained.py">查看讲解脚本</a>
       <a href="../content/code-experiments.json">查看实验数据文件</a>
     </div>
   </footer>

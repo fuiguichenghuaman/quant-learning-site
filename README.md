@@ -17,7 +17,7 @@
 - 首页
 - 学习日志
 - 代码实验
-- 策略实验室
+- 策略学习笔记
 - 中国股市基础
 - 每周复盘
 - 关于我
@@ -105,7 +105,7 @@ npm run preview
 
 - `content/learning-log.json`：学习日志
 - `content/code-experiments.json`：代码实验
-- `content/strategy-lab.json`：策略实验室
+- `content/strategy-lab.json`：策略学习笔记
 - `content/weekly-review-template.md`：每周复盘模板
 - `content/disclaimer.md`：风险声明
 
