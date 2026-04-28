@@ -1,0 +1,104 @@
+{
+  "projectName": "从零开始学量化交易",
+  "currentStage": {
+    "title": "数据读取与基础统计入门",
+    "summary": "当前学习重点仍然是把 Python 环境跑通、能稳定读取 A 股样例数据、开始理解代码参数和测试结构。",
+    "progressPercent": 22,
+    "focus": [
+      "VS Code + Python 解释器配置",
+      "numpy 读取 CSV 数据",
+      "基础统计与输出",
+      "学习记录与公开展示"
+    ]
+  },
+  "entries": [
+    {
+      "date": "2026-04-23",
+      "theme": "导入第一份 A 股样例数据",
+      "title": "开始接触本地股票 CSV 和 Excel 文件",
+      "learned": [
+        "项目目录里已经有 demo.csv 和 demo.csv.xlsx 两种格式的数据文件",
+        "样例数据包含股票代码、日期、价格和成交量等基础列",
+        "同一份数据同时保留 CSV 和 Excel 版本，说明学习已经开始接触代码读取与表格查看两种方式"
+      ],
+      "problems": [
+        "刚开始还不熟悉 Python 运行环境和 VS Code 的关系",
+        "还不知道应该怎样让代码真正读取本地文件"
+      ],
+      "nextPlan": [
+        "先把 Python 环境和 numpy 跑通",
+        "尝试用代码读取 CSV 指定列"
+      ],
+      "files": [
+        "demo.csv",
+        "demo.csv.xlsx"
+      ]
+    },
+    {
+      "date": "2026-04-24",
+      "theme": "第一次跑通股票数据读取脚本",
+      "title": "完成 CSV 指定列读取与 unittest 启动",
+      "learned": [
+        "开始使用 numpy.loadtxt() 读取股票样例数据",
+        "已经接触 delimiter、usecols、unpack、encoding 等关键参数",
+        "开始知道 unittest.main() 是直接运行测试文件时的重要启动开关"
+      ],
+      "problems": [
+        "经历过函数名拼写错误、路径问题和编码问题",
+        "一开始对 TestCase、测试方法、为什么运行没有反应这些概念不熟悉"
+      ],
+      "nextPlan": [
+        "继续理解参数到底从哪里来",
+        "开始记录哪些写法是固定的，哪些写法可以自己改"
+      ],
+      "files": [
+        "TestNumpyStock.py",
+        "TestNumpyStock_explained.py"
+      ]
+    },
+    {
+      "date": "2026-04-27",
+      "theme": "从读取数据走向基础统计",
+      "title": "新增最高价最大值与最低价最小值实验",
+      "learned": [
+        "在同一个测试类里增加了第二个测试方法",
+        "开始使用 numpy 数组的 .max() 和 .min()",
+        "开始理解 print(\"max_price={}\".format(...)) 这种输出写法"
+      ],
+      "problems": [
+        "第一次看到多个测试一起运行时，对输出顺序和 unittest 的点号感到困惑",
+        "需要进一步理解 format、print 和函数调用之间的关系"
+      ],
+      "nextPlan": [
+        "把已经问过的问题沉淀成可复习的说明文档",
+        "逐步把学习过程做成公开展示页面"
+      ],
+      "files": [
+        "TestNumpyStock.py",
+        "TestNumpyStock_explained.py"
+      ]
+    },
+    {
+      "date": "2026-04-28",
+      "theme": "开始建设公开学习档案",
+      "title": "把量化学习过程整理成个人网站方向",
+      "learned": [
+        "已经不再只关注代码能不能跑，而开始考虑怎样向别人展示真实成长过程",
+        "开始明确网站定位不是荐股，而是学习记录、代码实验和成长档案",
+        "项目正在从单纯代码目录，走向公开实验室的雏形"
+      ],
+      "problems": [
+        "当前量化代码仍然偏入门，网站内容需要真实呈现“刚起步”的阶段",
+        "还需要进一步建立长期更新结构，例如学习日志、每周复盘和策略模板"
+      ],
+      "nextPlan": [
+        "搭建可长期维护的多页静态网站",
+        "把学习日志、代码实验和策略实验室分开整理"
+      ],
+      "files": [
+        "learning_record.html",
+        "LEARNING_PROGRESS.md"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="从零开始学量化交易：记录一个普通人学习中国股市、Python 编程、数据分析、策略回测和交易系统搭建的全过程。">
+  <title>从零开始学量化交易</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body data-page="home" data-content-root="./content">
+  <header class="site-topbar">
+    <div class="site-shell bar">
+      <div class="brand">
+        <div class="brand-mark">Q</div>
+        <div class="brand-copy">
+          <p class="brand-title">从零开始学量化交易</p>
+          <p class="brand-subtitle">一个普通人学习中国股市量化交易的公开实验室</p>
+        </div>
+      </div>
+      <nav class="site-nav">
+        <a href="./index.html" data-nav="home">首页</a>
+        <a href="./pages/learning-log.html" data-nav="learning-log">学习日志</a>
+        <a href="./pages/code-experiments.html" data-nav="code-experiments">代码实验</a>
+        <a href="./pages/strategy-lab.html" data-nav="strategy-lab">策略实验室</a>
+        <a href="./pages/market-basics.html" data-nav="market-basics">中国股市基础</a>
+        <a href="./pages/weekly-review.html" data-nav="weekly-review">每周复盘</a>
+        <a href="./pages/about.html" data-nav="about">关于我</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">公开成长档案 · 持续更新中</div>
+        <h1 class="hero-title">从零开始<br>学量化交易</h1>
+        <p class="hero-subtitle">
+          记录我学习中国股市、Python 编程、数据分析、策略回测和交易系统搭建的全过程。
+          这里不是荐股网站，不承诺收益，也不展示“神奇预测”，只诚实记录：一个普通人如何从一穷二白开始，一点点学会看数据、读代码、写实验。
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="./pages/learning-log.html">查看学习日志</a>
+          <a class="button secondary" href="./pages/code-experiments.html">进入代码实验</a>
+          <a class="button secondary" href="./LEARNING_PROGRESS.md">打开学习进度文档</a>
+        </div>
+        <div class="hero-quote">
+          <p>我想展示的不是“我有多会”，而是“我原来不会，但我愿意查、愿意记、愿意公开走这条路”。</p>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <div class="side-card">
+          <h3>当前学习阶段</h3>
+          <p id="stage-title">正在读取学习阶段...</p>
+          <p id="stage-summary" class="muted"></p>
+          <div class="progress-shell">
+            <div class="progress-bar">
+              <span id="stage-progress" style="width: 0%;"></span>
+            </div>
+            <div class="progress-copy">
+              <span>当前进度只代表学习积累，不代表投资能力</span>
+              <strong id="stage-percent">0%</strong>
+            </div>
+          </div>
+        </div>
+        <div class="metric-grid">
+          <article class="metric-card">
+            <p class="metric-label">当前核心脚本</p>
+            <p class="metric-value">1 个</p>
+          </article>
+          <article class="metric-card">
+            <p class="metric-label">已跑通测试</p>
+            <p class="metric-value">2 项</p>
+          </article>
+          <article class="metric-card">
+            <p class="metric-label">样例数据格式</p>
+            <p class="metric-value">CSV / XLSX</p>
+          </article>
+          <article class="metric-card">
+            <p class="metric-label">记录方式</p>
+            <p class="metric-value">代码 + 网站</p>
+          </article>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section-grid">
+      <article class="section-card">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">当前学习重点</h2>
+            <p class="section-subtitle">这些是眼下真正投入精力的部分，都是基于当前项目已有文件提炼出来的。</p>
+          </div>
+          <span class="tag">阶段聚焦</span>
+        </div>
+        <div class="pill-list" id="stage-focus">
+          <div class="empty-state">正在加载当前学习重点...</div>
+        </div>
+      </article>
+
+      <article class="section-card">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">最近学习成果</h2>
+            <p class="section-subtitle">先展示最近发生的真实进展，让别人一眼看到这个站点是“正在成长中的”。</p>
+          </div>
+          <span class="tag">最近更新</span>
+        </div>
+        <div class="card-grid" id="latest-log-list">
+          <div class="empty-state">正在加载学习日志...</div>
+        </div>
+      </article>
+
+      <article class="section-card">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">项目入口</h2>
+            <p class="section-subtitle">网站不是金融大师主页，而是公开实验室。入口应该清楚、诚实、可长期维护。</p>
+          </div>
+          <span class="tag">站点导航</span>
+        </div>
+        <div class="link-grid">
+          <a class="info-card" href="./pages/learning-log.html">
+            <h3>学习日志</h3>
+            <p>按时间线展示我学到什么、卡在哪里、下一步准备做什么。</p>
+          </a>
+          <a class="info-card" href="./pages/code-experiments.html">
+            <h3>代码实验</h3>
+            <p>集中展示已经完成的 Python 实验、涉及文件、功能说明和运行方式。</p>
+          </a>
+          <a class="info-card" href="./pages/strategy-lab.html">
+            <h3>策略实验室</h3>
+            <p>未来用固定模板记录量化策略逻辑、回测结果、风险和不足。</p>
+          </a>
+          <a class="info-card" href="./pages/weekly-review.html">
+            <h3>每周复盘</h3>
+            <p>把每周的学习内容、踩坑记录和下周计划固定下来，方便持续积累。</p>
+          </a>
+        </div>
+      </article>
+
+      <article class="section-card">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">最近代码实验</h2>
+            <p class="section-subtitle">当前项目的真实能力还处在入门阶段，所以这里更强调“已经做成了什么”。</p>
+          </div>
+          <span class="tag">真实成果</span>
+        </div>
+        <div class="experiments-grid" id="recent-experiments">
+          <div class="empty-state">正在加载代码实验...</div>
+        </div>
+      </article>
+
+      <article class="section-card">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">这个网站的公开定位</h2>
+            <p class="section-subtitle">从第一天就把边界说清楚，对后续公开展示会更稳。</p>
+          </div>
+          <span class="tag">定位声明</span>
+        </div>
+        <div class="two-column">
+          <div class="summary-card">
+            <h3>这是一个什么网站</h3>
+            <ul class="list-reset">
+              <li>一个普通人从零学习中国股市量化交易的公开实验室。</li>
+              <li>重点记录学习过程、代码实验、策略模板、数据分析和个人复盘。</li>
+              <li>适合后续继续做成学习型、成长型、自媒体型内容主页。</li>
+            </ul>
+          </div>
+          <div class="disclaimer-card">
+            <h3>这不是什么网站</h3>
+            <ul class="list-reset">
+              <li>不是荐股网站。</li>
+              <li>不提供买卖建议。</li>
+              <li>不承诺收益，也不制造“绝对上涨”这类不合规表达。</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="current-year"></span> 从零开始学量化交易。这个站点用于学习记录、技术交流和公开成长展示，不构成任何投资建议。</p>
+    <div class="footer-links">
+      <a href="./pages/about.html">查看关于我</a>
+      <a href="./content/disclaimer.md">查看完整风险声明</a>
+      <a href="./TestNumpyStock.py">查看当前主脚本</a>
+      <a href="./TestNumpyStock_explained.py">查看代码讲解脚本</a>
+    </div>
+  </footer>
+
+  <script type="module" src="./assets/app.js"></script>
+</body>
+</html>

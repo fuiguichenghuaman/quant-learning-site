@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="展示当前已经完成的 Python 代码实验，包括文件、功能说明、核心知识点和运行方式。">
+  <title>代码实验 | 从零开始学量化交易</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-page="code-experiments" data-content-root="../content">
+  <header class="site-topbar">
+    <div class="site-shell bar">
+      <div class="brand">
+        <div class="brand-mark">Q</div>
+        <div class="brand-copy">
+          <p class="brand-title">从零开始学量化交易</p>
+          <p class="brand-subtitle">代码实验档案</p>
+        </div>
+      </div>
+      <nav class="site-nav">
+        <a href="../index.html" data-nav="home">首页</a>
+        <a href="./learning-log.html" data-nav="learning-log">学习日志</a>
+        <a href="./code-experiments.html" data-nav="code-experiments">代码实验</a>
+        <a href="./strategy-lab.html" data-nav="strategy-lab">策略实验室</a>
+        <a href="./market-basics.html" data-nav="market-basics">中国股市基础</a>
+        <a href="./weekly-review.html" data-nav="weekly-review">每周复盘</a>
+        <a href="./about.html" data-nav="about">关于我</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">代码实验 · 真实可运行</div>
+        <h1 class="hero-title">从读数据开始<br>慢慢积累代码手感</h1>
+        <p class="hero-subtitle">
+          这一页只展示当前项目里真实已经完成的实验，不夸大、不虚构。每个实验都说明涉及文件、功能、知识点和运行方式，方便自己复盘，也方便别人看到一个零基础学习者是怎样一步一步开始的。
+        </p>
+      </div>
+      <aside class="hero-side">
+        <div class="side-card">
+          <h3>当前代码特点</h3>
+          <p>当前实验还在入门阶段，重点是本地样例数据读取、基础统计和代码结构理解，而不是复杂策略和收益展示。</p>
+        </div>
+        <div class="metric-grid">
+          <article class="metric-card">
+            <p class="metric-label">实验主要语言</p>
+            <p class="metric-value">Python</p>
+          </article>
+          <article class="metric-card">
+            <p class="metric-label">当前数据来源</p>
+            <p class="metric-value">CSV / XLSX</p>
+          </article>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section-grid">
+      <article class="section-card">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">实验列表</h2>
+            <p class="section-subtitle">每个卡片都对应当前项目中已经存在的文件和功能。</p>
+          </div>
+          <span class="tag">自动读取内容文件</span>
+        </div>
+        <div class="card-grid" id="experiments-list">
+          <div class="empty-state">正在加载代码实验...</div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>代码实验用于学习记录和技术整理，不构成投资建议。</p>
+    <div class="footer-links">
+      <a href="../TestNumpyStock.py">打开主脚本</a>
+      <a href="../TestNumpyStock_explained.py">打开讲解脚本</a>
+      <a href="../content/code-experiments.json">查看实验数据文件</a>
+    </div>
+  </footer>
+
+  <script type="module" src="../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="按时间线记录我从零开始学习量化交易的真实过程，包括学到什么、遇到什么问题、准备下一步做什么。">
+  <title>学习日志 | 从零开始学量化交易</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-page="learning-log" data-content-root="../content">
+  <header class="site-topbar">
+    <div class="site-shell bar">
+      <div class="brand">
+        <div class="brand-mark">Q</div>
+        <div class="brand-copy">
+          <p class="brand-title">从零开始学量化交易</p>
+          <p class="brand-subtitle">公开学习日志</p>
+        </div>
+      </div>
+      <nav class="site-nav">
+        <a href="../index.html" data-nav="home">首页</a>
+        <a href="./learning-log.html" data-nav="learning-log">学习日志</a>
+        <a href="./code-experiments.html" data-nav="code-experiments">代码实验</a>
+        <a href="./strategy-lab.html" data-nav="strategy-lab">策略实验室</a>
+        <a href="./market-basics.html" data-nav="market-basics">中国股市基础</a>
+        <a href="./weekly-review.html" data-nav="weekly-review">每周复盘</a>
+        <a href="./about.html" data-nav="about">关于我</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">学习日志 · 时间线记录</div>
+        <h1 class="hero-title">把学会的过程<br>完整留下来</h1>
+        <p class="hero-subtitle">
+          这一页不是为了证明自己学得有多快，而是为了诚实保留每一个台阶：
+          我在哪一天碰到了什么问题，学到了什么，下一步准备往哪里走。
+        </p>
+      </div>
+      <aside class="hero-side">
+        <div class="side-card">
+          <h3 id="stage-title">正在读取当前阶段...</h3>
+          <p id="stage-summary"></p>
+          <div class="progress-shell">
+            <div class="progress-bar"><span id="stage-progress" style="width: 0%;"></span></div>
+            <div class="progress-copy">
+              <span>这个进度代表学习积累，不代表交易水平</span>
+              <strong id="stage-percent">0%</strong>
+            </div>
+          </div>
+        </div>
+        <div class="metric-grid">
+          <article class="metric-card">
+            <p class="metric-label">当前记录方式</p>
+            <p class="metric-value">时间线</p>
+          </article>
+          <article class="metric-card">
+            <p class="metric-label">日志来源</p>
+            <p class="metric-value">真实项目文件</p>
+          </article>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section-grid">
+      <article class="section-card">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">当前学习重点</h2>
+            <p class="section-subtitle">这是最近一段时间真正投入精力的方向。</p>
+          </div>
+          <span class="tag">阶段聚焦</span>
+        </div>
+        <div class="pill-list" id="stage-focus">
+          <div class="empty-state">正在加载当前阶段重点...</div>
+        </div>
+      </article>
+
+      <article class="section-card">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">学习时间线</h2>
+            <p class="section-subtitle">初始版本根据当前项目真实文件自动整理，后续可以持续追加。</p>
+          </div>
+          <span class="tag">自动生成初版</span>
+        </div>
+        <div class="timeline" id="learning-log-list">
+          <div class="empty-state">正在加载学习日志...</div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>学习日志页面只记录学习过程，不提供任何投资建议。</p>
+    <div class="footer-links">
+      <a href="../LEARNING_PROGRESS.md">查看学习进度文档</a>
+      <a href="../content/learning-log.json">查看日志数据文件</a>
+    </div>
+  </footer>
+
+  <script type="module" src="../assets/app.js"></script>
+</body>
+</html>

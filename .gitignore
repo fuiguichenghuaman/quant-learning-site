@@ -1,0 +1,17 @@
+node_modules/
+dist/
+build/
+public/
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.cache/
+coverage/
+*.local
+*.tmp
+__pycache__/
+*.pyc

@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>从零开始学量化 | 公开成长记录</title>
+    <style>
+        :root {
+            --bg: #f6efe4;
+            --bg-deep: #f0e4d0;
+            --surface: rgba(255, 251, 245, 0.84);
+            --surface-strong: rgba(255, 255, 255, 0.92);
+            --line: rgba(68, 49, 31, 0.12);
+            --ink: #2f2419;
+            --muted: #746454;
+            --accent: #af4d2b;
+            --accent-2: #244d59;
+            --accent-3: #728f6d;
+            --warm: #f1c8b2;
+            --sky: #d8e7ef;
+            --sage: #dbe6d1;
+            --gold: #f0dfb5;
+            --shadow: 0 28px 60px rgba(78, 52, 31, 0.14);
+            --radius: 28px;
+            --radius-small: 18px;
+            --max: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            font-family: "Noto Serif SC", "Source Han Serif SC", "STSong", Georgia, serif;
+            background:
+                radial-gradient(circle at top left, rgba(244, 205, 176, 0.88), transparent 28%),
+                radial-gradient(circle at 85% 12%, rgba(208, 226, 235, 0.7), transparent 25%),
+                radial-gradient(circle at 12% 82%, rgba(214, 227, 204, 0.72), transparent 26%),
+                linear-gradient(180deg, #fffaf4 0%, var(--bg) 52%, #efe1cc 100%);
+            line-height: 1.72;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+            mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.32), transparent 70%);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .page {
+            width: min(var(--max), calc(100% - 32px));
+            margin: 0 auto;
+            padding: 18px 0 72px;
+        }
+
+        .topbar {
+            position: sticky;
+            top: 14px;
+            z-index: 20;
+            margin-bottom: 16px;
+            backdrop-filter: blur(14px);
+        }
+
+        .topbar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 12px 16px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: rgba(255, 250, 243, 0.78);
+            box-shadow: 0 14px 36px rgba(74, 49, 31, 0.08);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .brand-mark {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            font-size: 1.15rem;
+            background:
+                linear-gradient(140deg, rgba(175, 77, 43, 0.18), rgba(36, 77, 89, 0.18)),
+                rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(175, 77, 43, 0.16);
+        }
+
+        .brand-copy {
+            min-width: 0;
+        }
+
+        .brand-title {
+            margin: 0;
+            font-size: 0.98rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .brand-sub {
+            margin: 2px 0 0;
+            color: var(--muted);
+            font-size: 0.84rem;
+        }
+
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .nav a {
+            padding: 9px 13px;
+            border-radius: 999px;
+            font-size: 0.92rem;
+            color: var(--muted);
+            transition: transform 160ms ease, background 160ms ease, color 160ms ease;
+        }
+
+        .nav a:hover,
+        .nav a:focus-visible {
+            outline: none;
+            transform: translateY(-1px);
+            color: var(--ink);
+            background: rgba(255, 255, 255, 0.76);
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 24px;
+            padding: 30px;
+            border: 1px solid var(--line);
+            border-radius: calc(var(--radius) + 6px);
+            background:
+                linear-gradient(135deg, rgba(255, 249, 240, 0.96), rgba(255, 255, 255, 0.82)),
+                rgba(255, 255, 255, 0.68);
+            box-shadow: var(--shadow);
+        }
+
+        .hero::before,
+        .hero::after {
+            content: "";
+            position: absolute;
+            border-radius: 999px;
+            pointer-events: none;
+        }
+
+        .hero::before {
+            width: 320px;
+            height: 320px;
+            top: -130px;
+            right: -40px;
+            background: rgba(175, 77, 43, 0.12);
+        }
+
+        .hero::after {
+            width: 260px;
+            height: 260px;
+            left: -70px;
+            bottom: -120px;
+            background: rgba(114, 143, 109, 0.12);
+        }
+
+        .hero-copy,
+        .hero-side {
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(175, 77, 43, 0.12);
+            color: var(--accent);
+            font-size: 0.92rem;
+            letter-spacing: 0.04em;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.4rem, 4.8vw, 4.9rem);
+            line-height: 0.98;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-copy .lead {
+            max-width: 690px;
+            margin: 18px 0 24px;
+            font-size: 1.08rem;
+            color: var(--muted);
+        }
+
+        .quote-card {
+            padding: 18px 18px 18px 22px;
+            margin-top: 18px;
+            border-left: 5px solid var(--accent);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.76);
+            box-shadow: inset 0 0 0 1px rgba(175, 77, 43, 0.08);
+        }
+
+        .quote-card p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 13px 18px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            font-size: 0.95rem;
+            transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+        }
+
+        .button.primary {
+            color: #fff;
+            background: linear-gradient(135deg, #bf5b36, #9d421e);
+            box-shadow: 0 16px 28px rgba(159, 66, 30, 0.25);
+        }
+
+        .button.secondary {
+            color: var(--ink);
+            background: rgba(255, 255, 255, 0.78);
+            border-color: var(--line);
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            outline: none;
+            transform: translateY(-1px);
+        }
+
+        .hero-side {
+            display: grid;
+            gap: 16px;
+            align-content: start;
+        }
+
+        .story-card,
+        .mini-card,
+        .panel,
+        .code-card,
+        .timeline-card,
+        .pitfall-card,
+        .method-card,
+        .question-card,
+        .cta-card {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--surface);
+            box-shadow: var(--shadow);
+        }
+
+        .story-card {
+            padding: 22px;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 249, 243, 0.88));
+        }
+
+        .story-card h2 {
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .story-card p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .mini-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .mini-card {
+            padding: 18px;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .mini-label {
+            margin: 0 0 8px;
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .mini-value {
+            margin: 0;
+            font-size: 1.55rem;
+            font-weight: 700;
+        }
+
+        .grid {
+            display: grid;
+            gap: 22px;
+            margin-top: 22px;
+        }
+
+        .panel {
+            padding: 28px;
+        }
+
+        .panel h2 {
+            margin: 0 0 10px;
+            font-size: 2rem;
+        }
+
+        .panel-intro {
+            margin: 0;
+            color: var(--muted);
+            max-width: 760px;
+        }
+
+        .manifesto {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 20px;
+            margin-top: 18px;
+        }
+
+        .manifesto-card,
+        .promise-card {
+            padding: 22px;
+            border-radius: 24px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .manifesto-card strong,
+        .promise-card strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.12rem;
+        }
+
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        .journey-step {
+            padding: 20px;
+            border-radius: 24px;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(248, 239, 229, 0.84));
+            border: 1px solid rgba(68, 49, 31, 0.08);
+        }
+
+        .journey-step .step-number {
+            display: inline-grid;
+            place-items: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(135deg, #b65a36, #244d59);
+        }
+
+        .journey-step h3 {
+            margin: 14px 0 8px;
+            font-size: 1.14rem;
+        }
+
+        .journey-step p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.98rem;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 20px;
+            margin-top: 18px;
+        }
+
+        .timeline-list,
+        .pitfall-list,
+        .method-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .timeline-card,
+        .pitfall-card,
+        .method-card,
+        .question-card,
+        .cta-card,
+        .code-card {
+            padding: 22px;
+        }
+
+        .timeline-header,
+        .pitfall-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-tag,
+        .pitfall-tag,
+        .tiny-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 7px 11px;
+            border-radius: 999px;
+            background: rgba(36, 77, 89, 0.12);
+            color: var(--accent-2);
+            font-size: 0.84rem;
+        }
+
+        .pitfall-card {
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(245, 235, 226, 0.86));
+        }
+
+        .pitfall-columns {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .pitfall-mini {
+            padding: 14px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.74);
+            border: 1px solid rgba(68, 49, 31, 0.08);
+        }
+
+        .pitfall-mini strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .code-card {
+            overflow: hidden;
+            background: linear-gradient(180deg, #2b241f, #221c18);
+            color: #f8efe4;
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .code-top {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .code-title {
+            margin: 0;
+            font-size: 1.08rem;
+        }
+
+        .code-note {
+            margin: 0;
+            color: rgba(248, 239, 228, 0.72);
+        }
+
+        pre {
+            margin: 0;
+            overflow: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-family: "Cascadia Code", "Consolas", "Courier New", monospace;
+            font-size: 0.94rem;
+            line-height: 1.72;
+        }
+
+        code {
+            font-family: "Cascadia Code", "Consolas", "Courier New", monospace;
+            font-size: 0.94em;
+        }
+
+        .note-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        .note-card {
+            padding: 18px;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid var(--line);
+        }
+
+        .question-stack {
+            display: grid;
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .question-card {
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(223, 234, 242, 0.52));
+        }
+
+        .question-card h3 {
+            margin: 0 0 8px;
+            font-size: 1.08rem;
+        }
+
+        .question-card p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .method-list {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .method-card {
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(219, 230, 209, 0.58));
+        }
+
+        .method-card strong {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--accent-3);
+        }
+
+        .cta-card {
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(135deg, rgba(36, 77, 89, 0.92), rgba(175, 77, 43, 0.94));
+            color: #fffaf3;
+        }
+
+        .cta-card::after {
+            content: "";
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            right: -90px;
+            top: -100px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .cta-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-card h2 {
+            margin-bottom: 12px;
+        }
+
+        .cta-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .footer {
+            margin-top: 22px;
+            padding: 22px 26px;
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            background: rgba(255, 251, 244, 0.8);
+            color: var(--muted);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .footer-links a {
+            padding: 9px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid var(--line);
+        }
+
+        @media (max-width: 1080px) {
+            .hero,
+            .manifesto,
+            .section-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .journey-grid,
+            .method-list {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 760px) {
+            .page {
+                width: min(var(--max), calc(100% - 18px));
+            }
+
+            .topbar {
+                position: static;
+            }
+
+            .topbar-inner {
+                border-radius: 24px;
+                padding: 14px;
+            }
+
+            .nav {
+                justify-content: flex-start;
+            }
+
+            .hero {
+                padding: 22px;
+            }
+
+            .panel {
+                padding: 22px;
+            }
+
+            .journey-grid,
+            .note-grid,
+            .pitfall-columns,
+            .method-list,
+            .mini-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .hero,
+            .panel,
+            .story-card,
+            .mini-card,
+            .timeline-card,
+            .pitfall-card,
+            .method-card,
+            .question-card,
+            .cta-card {
+                animation: rise 640ms ease both;
+            }
+
+            .panel:nth-of-type(2) { animation-delay: 80ms; }
+            .panel:nth-of-type(3) { animation-delay: 130ms; }
+            .panel:nth-of-type(4) { animation-delay: 180ms; }
+            .panel:nth-of-type(5) { animation-delay: 220ms; }
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="topbar">
+            <div class="topbar-inner">
+                <div class="brand">
+                    <div class="brand-mark">记</div>
+                    <div class="brand-copy">
+                        <p class="brand-title">从零开始学量化</p>
+                        <p class="brand-sub">公开记录一个纯小白的真实成长过程</p>
+                    </div>
+                </div>
+                <nav class="nav">
+                    <a href="#story">故事</a>
+                    <a href="#journey">过程</a>
+                    <a href="#pitfalls">踩坑</a>
+                    <a href="#code">代码</a>
+                    <a href="#questions">疑问</a>
+                    <a href="#method">方法</a>
+                </nav>
+            </div>
+        </div>
+
+        <header class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">2026年4月28日 · 持续公开更新</p>
+                <h1>一个纯小白<br>学习量化交易的<br>公开成长记录</h1>
+                <p class="lead">
+                    这里不展示“结果有多厉害”，而是诚实记录“开始时有多不会”。从装 Python、
+                    装 numpy、看不懂 <code>fname=file_name</code>，到慢慢理解 <code>print</code>、<code>loadtxt</code>、
+                    <code>format</code> 和 <code>unittest</code>，每一步都保留下来，让后来的人知道：零基础也可以一点一点走出来。
+                </p>
+                <div class="hero-actions">
+                    <a class="button primary" href="#journey">看成长过程</a>
+                    <a class="button secondary" href="#pitfalls">看真实踩坑</a>
+                    <a class="button secondary" href="TestNumpyStock.py">打开当前主脚本</a>
+                </div>
+                <div class="quote-card">
+                    <p>我想把这条路走得公开一点、慢一点、真一点。不是为了证明自己一开始就会，而是为了留下“不会的人，后来是怎么会一点点的”。</p>
+                </div>
+            </div>
+
+            <aside class="hero-side">
+                <div class="story-card">
+                    <h2>这个页面适合谁看</h2>
+                    <p>适合像我一样的初学者，也适合想做自媒体的人。它不是课程目录，而是一份真实成长样本：问题出现了，怎么查，怎么改，怎么慢慢理解。</p>
+                </div>
+                <div class="mini-grid">
+                    <article class="mini-card">
+                        <p class="mini-label">当前阶段</p>
+                        <p class="mini-value">入门打底</p>
+                    </article>
+                    <article class="mini-card">
+                        <p class="mini-label">已跑通测试</p>
+                        <p class="mini-value">2 个</p>
+                    </article>
+                    <article class="mini-card">
+                        <p class="mini-label">核心脚本</p>
+                        <p class="mini-value">1 份</p>
+                    </article>
+                    <article class="mini-card">
+                        <p class="mini-label">记录方式</p>
+                        <p class="mini-value">公开日志</p>
+                    </article>
+                </div>
+            </aside>
+        </header>
+
+        <main class="grid">
+            <section id="story" class="panel">
+                <h2>这不是“大神教程”，而是一段真实的起步故事</h2>
+                <p class="panel-intro">
+                    我希望别人打开这个页面时，看见的不是一堆看不懂的术语，而是一个很具体的人：
+                    一开始不懂环境、不懂路径、不懂参数、不懂输出顺序，但愿意问、愿意改、愿意把踩坑也公开留下来。
+                </p>
+                <div class="manifesto">
+                    <article class="manifesto-card">
+                        <strong>我想记录的，不只是代码本身。</strong>
+                        <p>我更想记录“不会时的反应”和“理解后的小台阶”。比如第一次知道 VS Code 插件不能代替 Python 本体，第一次明白一个点 <code>.</code> 原来表示一个测试通过，第一次知道 <code>max_price={}</code> 里的花括号不是装饰，而是留给值的位置。</p>
+                    </article>
+                    <article class="promise-card">
+                        <strong>这个页面以后会继续长大。</strong>
+                        <p>每学一个新知识点、每改一次脚本、每多理解一行代码，都可以继续补在这里。它会慢慢从“学习记录”长成“可公开展示的成长档案”。</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="journey" class="panel">
+                <h2>成长过程</h2>
+                <p class="panel-intro">别人以后看到的，不应该只是“你现在会了什么”，还应该看到“你曾经不会什么”。这才是最有力量的成长内容。</p>
+                <div class="journey-grid">
+                    <article class="journey-step">
+                        <div class="step-number">01</div>
+                        <h3>连运行都不会</h3>
+                        <p>一开始真正的问题不是代码一行写错，而是连 Python 环境和 VS Code 的关系都没理清。</p>
+                    </article>
+                    <article class="journey-step">
+                        <div class="step-number">02</div>
+                        <h3>慢慢搞懂“环境”</h3>
+                        <p>学会区分 Python 本体、VS Code 插件、解释器、pip、numpy 这些东西分别是什么。</p>
+                    </article>
+                    <article class="journey-step">
+                        <div class="step-number">03</div>
+                        <h3>开始能查错</h3>
+                        <p>从函数名拼错、路径不对、编码不匹配，到开始知道应该先看报错，再看哪一行出问题。</p>
+                    </article>
+                    <article class="journey-step">
+                        <div class="step-number">04</div>
+                        <h3>开始能理解代码关系</h3>
+                        <p>不再只看“能不能跑”，而开始问：参数从哪来，函数归谁管，为什么输出顺序是这样。</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="panel">
+                <h2>现在这份脚本到底是怎样工作的</h2>
+                <p class="panel-intro">把程序看成“流水线”，通常比死记硬背每一行更容易理解。</p>
+                <div class="section-grid">
+                    <div class="timeline-list">
+                        <article class="timeline-card">
+                            <div class="timeline-header">
+                                <strong>第 1 段：导入工具</strong>
+                                <span class="timeline-tag">准备阶段</span>
+                            </div>
+                            <p><code>import numpy as np</code> 和 <code>import unittest</code> 的作用，是先把后面要用到的工具拿进来。</p>
+                        </article>
+                        <article class="timeline-card">
+                            <div class="timeline-header">
+                                <strong>第 2 段：定义测试类</strong>
+                                <span class="timeline-tag">结构阶段</span>
+                            </div>
+                            <p><code>class TestNumpyStock(unittest.TestCase)</code> 告诉 unittest：这里有一个测试类，里面的方法可能要被自动执行。</p>
+                        </article>
+                        <article class="timeline-card">
+                            <div class="timeline-header">
+                                <strong>第 3 段：两个测试方法</strong>
+                                <span class="timeline-tag">执行阶段</span>
+                            </div>
+                            <p><code>testReadFile</code> 负责读取收盘价和成交量，<code>testMaxAndMin</code> 负责读取最高价和最低价，并计算最大值最小值。</p>
+                        </article>
+                        <article class="timeline-card">
+                            <div class="timeline-header">
+                                <strong>第 4 段：启动测试</strong>
+                                <span class="timeline-tag">收尾阶段</span>
+                            </div>
+                            <p><code>if __name__ == "__main__":</code> 配合 <code>unittest.main()</code>，负责在直接运行文件时真正把两个测试启动起来。</p>
+                        </article>
+                    </div>
+                    <aside class="story-card">
+                        <h2>为什么终端会出现 <code>..</code></h2>
+                        <p>因为 unittest 会给每个通过的测试打一个点。你现在有两个测试方法都通过了，所以会显示两个点。它们不是报错，而是在告诉你：“这两个测试都跑完并且通过了。”</p>
+                    </aside>
+                </div>
+            </section>
+
+            <section id="pitfalls" class="panel">
+                <h2>真实踩坑档案</h2>
+                <p class="panel-intro">这是最适合公开展示的部分。因为真正能打动人的，不是“看起来很会”，而是“原来你也曾经一步一步解决过这些问题”。</p>
+                <div class="pitfall-list">
+                    <article class="pitfall-card">
+                        <div class="pitfall-header">
+                            <strong>踩坑 1：Python 装了，为什么还是运行不了？</strong>
+                            <span class="pitfall-tag">环境问题</span>
+                        </div>
+                        <p>问题不是一个，而是叠在一起的：电脑需要真正可用的 Python 本体，而不是只装 VS Code 插件。后来又发现“装库的 Python”和“运行脚本的 Python”必须是同一个。</p>
+                        <div class="pitfall-columns">
+                            <div class="pitfall-mini">
+                                <strong>当时的表面现象</strong>
+                                <p>点运行没反应，或者提示没有某个库。</p>
+                            </div>
+                            <div class="pitfall-mini">
+                                <strong>真正原因</strong>
+                                <p>解释器没有选对，环境没有打通。</p>
+                            </div>
+                            <div class="pitfall-mini">
+                                <strong>学到的东西</strong>
+                                <p>插件不是 Python 本体，pip 装库也要看是装给哪一份 Python。</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="pitfall-card">
+                        <div class="pitfall-header">
+                            <strong>踩坑 2：<code>np.loadtxt</code> 为什么读文件报错？</strong>
+                            <span class="pitfall-tag">代码问题</span>
+                        </div>
+                        <p>这里先后踩了几个坑：函数名曾经拼错，路径写法不稳，CSV 编码和读取方式不匹配。最后通过 <code>encoding="utf-8-sig"</code> 才把读文件这一步真正跑通。</p>
+                        <div class="pitfall-columns">
+                            <div class="pitfall-mini">
+                                <strong>当时的表面现象</strong>
+                                <p>报找不到函数、找不到文件、或者编码错误。</p>
+                            </div>
+                            <div class="pitfall-mini">
+                                <strong>真正原因</strong>
+                                <p>读文件不只是一句函数，还涉及路径、参数、编码三件事。</p>
+                            </div>
+                            <div class="pitfall-mini">
+                                <strong>学到的东西</strong>
+                                <p>同一条报错背后，往往不是只有一个原因。</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="pitfall-card">
+                        <div class="pitfall-header">
+                            <strong>踩坑 3：为什么输出顺序和自己想的不一样？</strong>
+                            <span class="pitfall-tag">理解问题</span>
+                        </div>
+                        <p>当脚本从一个测试方法增加到两个测试方法时，终端输出也不再只是“打印数组”，而是“先最大最小值，再数组，再加 unittest 自己的点号和总结”。</p>
+                        <div class="pitfall-columns">
+                            <div class="pitfall-mini">
+                                <strong>当时的表面现象</strong>
+                                <p>看见输出顺序变化，以为程序出问题了。</p>
+                            </div>
+                            <div class="pitfall-mini">
+                                <strong>真正原因</strong>
+                                <p>现在是 unittest 在执行两个测试，不只是单独执行一条 print。</p>
+                            </div>
+                            <div class="pitfall-mini">
+                                <strong>学到的东西</strong>
+                                <p>要分清楚：哪些输出来自自己的 print，哪些输出来自测试框架。</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="code" class="panel">
+                <h2>当前脚本展示</h2>
+                <p class="panel-intro">这是现在已经跑通的脚本骨架。它很适合放在公开页面里，因为别人能看到你已经开始从“运行”走向“理解”。</p>
+                <div class="section-grid">
+                    <article class="code-card">
+                        <div class="code-top">
+                            <div>
+                                <h3 class="code-title">TestNumpyStock.py</h3>
+                                <p class="code-note">当前正在学习的主脚本</p>
+                            </div>
+                            <span class="tiny-tag">已可运行</span>
+                        </div>
+<pre><code>import numpy as np
+import unittest
+from pathlib import Path
+
+
+class TestNumpyStock(unittest.TestCase):
+
+    def testReadFile(self):
+        file_name = Path(__file__).with_name("demo.csv")
+        end_price, volume = np.loadtxt(
+            fname=file_name,
+            delimiter=',',
+            usecols=(2, 6),
+            unpack=True,
+            encoding="utf-8-sig",
+        )
+        print(end_price)
+        print(volume)
+
+    def testMaxAndMin(self):
+        file_name = Path(__file__).with_name("demo.csv")
+        high_price, low_price = np.loadtxt(
+            fname=file_name,
+            delimiter=',',
+            usecols=(4, 5),
+            unpack=True,
+            encoding="utf-8-sig",
+        )
+        print("max_price={}".format(high_price.max()))
+        print("low_price={}".format(low_price.min()))
+
+
+if __name__ == "__main__":
+    unittest.main()</code></pre>
+                    </article>
+
+                    <div>
+                        <div class="note-grid">
+                            <article class="note-card">
+                                <h3>固定写法</h3>
+                                <p><code>import</code>、<code>class</code>、<code>def</code>、<code>if __name__ == "__main__"</code>、<code>unittest.main()</code> 这些是结构上的骨架，通常不能随便乱动。</p>
+                            </article>
+                            <article class="note-card">
+                                <h3>函数规定的参数</h3>
+                                <p><code>fname</code>、<code>delimiter</code>、<code>usecols</code>、<code>unpack</code>、<code>encoding</code> 这些左边的名字，是 <code>np.loadtxt</code> 规定好的。</p>
+                            </article>
+                            <article class="note-card">
+                                <h3>你自己能改的</h3>
+                                <p><code>file_name</code>、<code>end_price</code>、<code>volume</code>、<code>high_price</code>、<code>low_price</code> 这些变量名，以及打印文字内容。</p>
+                            </article>
+                            <article class="note-card">
+                                <h3>最容易忽略的点</h3>
+                                <p>路径、编码、列号、输出顺序，往往比一行拼写错误更容易让初学者反复卡住。</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="questions" class="panel">
+                <h2>我已经问过的问题</h2>
+                <p class="panel-intro">这一栏特别适合做自媒体，因为它很真实。别人看到这些问题，会更容易代入自己的困惑。</p>
+                <div class="question-stack">
+                    <article class="question-card">
+                        <h3><code>fname=file_name</code> 里的 <code>fname</code> 是什么？</h3>
+                        <p><code>fname</code> 不是自己发明的名字，它来自 <code>np.loadtxt()</code> 这个函数。左边是函数规定好的参数名，右边的 <code>file_name</code> 才是自己起的变量名。</p>
+                    </article>
+                    <article class="question-card">
+                        <h3><code>print</code> 为什么可以这样写？</h3>
+                        <p>因为 <code>print</code> 是 Python 自带函数，基本规则就是：<code>函数名(要处理的内容)</code>。如果括号里放变量，就打印变量的值；如果放文字，就打印文字；两者都放，也可以一起打印。</p>
+                    </article>
+                    <article class="question-card">
+                        <h3><code>print("max_price={}".format(high_price.max()))</code> 这一句为什么能成立？</h3>
+                        <p>它其实是“先求最大值，再把最大值填进一句文字模板里，最后再打印”的三步连起来写成一行。表面上复杂，拆开后就很清楚。</p>
+                    </article>
+                    <article class="question-card">
+                        <h3>为什么输出里有最大值、数组，还有两个点？</h3>
+                        <p>最大值和数组来自你自己的 <code>print</code>，两个点来自 unittest。一个点表示一个测试通过，两个点表示两个测试都通过了。</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="method" class="panel">
+                <h2>这一路积累下来的学习方法</h2>
+                <p class="panel-intro">以后你做公开内容时，这一部分会很有价值。它告诉别人：不是天赋让人变会，而是方法。</p>
+                <div class="method-list">
+                    <article class="method-card">
+                        <strong>先看报错，不急着瞎改</strong>
+                        <p>报错通常会指向具体哪一行、哪一种问题。先读懂报错，比盲目改代码更重要。</p>
+                    </article>
+                    <article class="method-card">
+                        <strong>先分清环境，再分清代码</strong>
+                        <p>“装不上库”常常不是代码问题，而是 Python 环境没有选对。环境和代码要分开看。</p>
+                    </article>
+                    <article class="method-card">
+                        <strong>把复杂的一行拆成几小步</strong>
+                        <p>像 <code>print("max_price={}".format(high_price.max()))</code> 这种看起来复杂的句子，拆开以后就能慢慢看懂。</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="cta-card">
+                <h2>接下来，这个页面可以继续记录什么？</h2>
+                <p>如果你后面继续学习量化交易，这个页面很适合继续增加这些内容：</p>
+                <ol class="cta-list">
+                    <li>每学一个新函数，就加一个“我以前不懂、现在懂一点了”的小卡片。</li>
+                    <li>每写一个新脚本，就加一段“这个脚本是用来干什么的”。</li>
+                    <li>每遇到一个新报错，就补一条“踩坑档案”。</li>
+                    <li>每周做一次“本周学到了什么”的更新，慢慢形成自己的公开学习栏目。</li>
+                </ol>
+            </section>
+        </main>
+
+        <footer class="footer">
+            这份主页和 <a href="TestNumpyStock_explained.py">TestNumpyStock_explained.py</a> 一起，构成你的公开学习档案。
+            它既可以自己复习，也适合将来作为自媒体内容的展示页面。
+            <div class="footer-links">
+                <a href="TestNumpyStock.py">查看主脚本</a>
+                <a href="TestNumpyStock_explained.py">查看 explained 讲解版</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

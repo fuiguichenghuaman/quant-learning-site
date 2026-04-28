@@ -1,0 +1,17 @@
+{
+  "name": "quant-learning-public-lab",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "prepare-site": "node tools/prepare-site.mjs",
+    "predev": "npm run prepare-site",
+    "prebuild": "npm run prepare-site",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.0.0"
+  }
+}
